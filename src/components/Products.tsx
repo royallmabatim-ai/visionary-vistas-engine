@@ -6,8 +6,14 @@ import { MessageCircle } from "lucide-react";
 import boxProfileImage from "@/assets/box-profile-roofing.jpg";
 import corrugatedImage from "@/assets/corrugated-roofing.jpg";
 import tileProfileImage from "@/assets/tile-profile-roofing.jpg";
+import ibrProfileImage from "@/assets/ibr-profile-roofing.jpg";
+import stoneCoatedImage from "@/assets/stone-coated-roofing.jpg";
+import kliplokImage from "@/assets/kliplok-roofing.jpg";
+import longspanImage from "@/assets/longspan-roofing.jpg";
 
-type ProductType = "all" | "glossy" | "classic" | "tile";
+type ProductType = "all" | "glossy" | "classic" | "tile" | "ibr" | "stone" | "kliplok" | "longspan";
+
+
 
 export const Products = () => {
   const [filter, setFilter] = useState<ProductType>("all");
@@ -39,6 +45,42 @@ export const Products = () => {
       badge: "Premium",
       badgeVariant: "default" as const,
       image: tileProfileImage
+    },
+    {
+      type: "ibr" as ProductType,
+      title: "IBR Profile",
+      description: "Inverted Box Rib design with superior strength, widely used in industrial applications.",
+      price: "KES 490/meter",
+      badge: "Industrial",
+      badgeVariant: "secondary" as const,
+      image: ibrProfileImage
+    },
+    {
+      type: "stone" as ProductType,
+      title: "Stone-Coated",
+      description: "Luxury stone-coated steel with exceptional aesthetics and 50-year lifespan.",
+      price: "KES 850/meter",
+      badge: "Luxury",
+      badgeVariant: "default" as const,
+      image: stoneCoatedImage
+    },
+    {
+      type: "kliplok" as ProductType,
+      title: "Klip-Lok",
+      description: "Concealed fix standing seam system for modern architectural applications.",
+      price: "KES 650/meter",
+      badge: "Architectural",
+      badgeVariant: "secondary" as const,
+      image: kliplokImage
+    },
+    {
+      type: "longspan" as ProductType,
+      title: "Longspan",
+      description: "Wide coverage profile for fast installation, ideal for warehouses and factories.",
+      price: "KES 540/meter",
+      badge: "Commercial",
+      badgeVariant: "secondary" as const,
+      image: longspanImage
     }
   ];
 
@@ -78,14 +120,14 @@ export const Products = () => {
               onClick={() => setFilter("glossy")}
               className={filter === "glossy" ? "bg-gradient-primary" : ""}
             >
-              Glossy
+              Box Profile
             </Button>
             <Button
               variant={filter === "classic" ? "default" : "outline"}
               onClick={() => setFilter("classic")}
               className={filter === "classic" ? "bg-gradient-primary" : ""}
             >
-              Classic
+              Corrugated
             </Button>
             <Button
               variant={filter === "tile" ? "default" : "outline"}
@@ -93,6 +135,34 @@ export const Products = () => {
               className={filter === "tile" ? "bg-gradient-primary" : ""}
             >
               Tile
+            </Button>
+            <Button
+              variant={filter === "ibr" ? "default" : "outline"}
+              onClick={() => setFilter("ibr")}
+              className={filter === "ibr" ? "bg-gradient-primary" : ""}
+            >
+              IBR
+            </Button>
+            <Button
+              variant={filter === "stone" ? "default" : "outline"}
+              onClick={() => setFilter("stone")}
+              className={filter === "stone" ? "bg-gradient-primary" : ""}
+            >
+              Stone-Coated
+            </Button>
+            <Button
+              variant={filter === "kliplok" ? "default" : "outline"}
+              onClick={() => setFilter("kliplok")}
+              className={filter === "kliplok" ? "bg-gradient-primary" : ""}
+            >
+              Klip-Lok
+            </Button>
+            <Button
+              variant={filter === "longspan" ? "default" : "outline"}
+              onClick={() => setFilter("longspan")}
+              className={filter === "longspan" ? "bg-gradient-primary" : ""}
+            >
+              Longspan
             </Button>
           </div>
         </div>
@@ -161,7 +231,7 @@ export const Products = () => {
               Prices vary by profile, gauge, finish and quantity. Listed prices are starting rates — 
               final quotes depend on specifications and delivery location.
             </p>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm grid md:grid-cols-2 gap-2">
               <li className="flex items-center gap-2">
                 <span className="font-semibold text-foreground">Box Profile:</span>
                 <span className="text-muted-foreground">from KES 470/meter</span>
@@ -173,6 +243,22 @@ export const Products = () => {
               <li className="flex items-center gap-2">
                 <span className="font-semibold text-foreground">Tile Profile:</span>
                 <span className="text-muted-foreground">from KES 520/meter</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-semibold text-foreground">IBR Profile:</span>
+                <span className="text-muted-foreground">from KES 490/meter</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-semibold text-foreground">Stone-Coated:</span>
+                <span className="text-muted-foreground">from KES 850/meter</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-semibold text-foreground">Klip-Lok:</span>
+                <span className="text-muted-foreground">from KES 650/meter</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-semibold text-foreground">Longspan:</span>
+                <span className="text-muted-foreground">from KES 540/meter</span>
               </li>
             </ul>
             <p className="text-sm text-muted-foreground mt-4">
