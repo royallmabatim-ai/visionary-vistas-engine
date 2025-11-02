@@ -3,6 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { MessageCircle } from "lucide-react";
+import boxProfileImage from "@/assets/box-profile-roofing.jpg";
+import corrugatedImage from "@/assets/corrugated-roofing.jpg";
+import tileProfileImage from "@/assets/tile-profile-roofing.jpg";
 
 type ProductType = "all" | "glossy" | "classic" | "tile";
 
@@ -17,7 +20,7 @@ export const Products = () => {
       price: "KES 470/meter",
       badge: "Best Seller",
       badgeVariant: "default" as const,
-      image: "https://cdn.pixabay.com/photo/2018/01/26/20/24/corrugated-sheet-3109177_1280.jpg"
+      image: boxProfileImage
     },
     {
       type: "classic" as ProductType,
@@ -26,7 +29,7 @@ export const Products = () => {
       price: "KES 430/meter",
       badge: "Classic",
       badgeVariant: "secondary" as const,
-      image: "https://cdn.pixabay.com/photo/2020/04/14/18/15/tin-5043749_1280.jpg"
+      image: corrugatedImage
     },
     {
       type: "tile" as ProductType,
@@ -35,7 +38,7 @@ export const Products = () => {
       price: "KES 520/meter",
       badge: "Premium",
       badgeVariant: "default" as const,
-      image: "https://cdn.pixabay.com/photo/2016/07/26/16/16/tile-1543226_1280.jpg"
+      image: tileProfileImage
     }
   ];
 
