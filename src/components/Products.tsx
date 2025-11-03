@@ -222,48 +222,73 @@ export const Products = () => {
         </div>
 
         {/* Pricing Note */}
-        <Card className="mt-12">
-          <CardHeader>
-            <CardTitle>Pricing & Estimates</CardTitle>
+        <Card className="mt-12 border-primary/20 shadow-elegant bg-gradient-to-br from-background via-background to-primary/5">
+          <CardHeader className="text-center pb-8">
+            <CardTitle className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+              Pricing & Estimates
+            </CardTitle>
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+              Transparent pricing for quality roofing solutions. All prices are starting rates for standard specifications.
+            </p>
           </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-4">
-              Prices vary by profile, gauge, finish and quantity. Listed prices are starting rates — 
-              final quotes depend on specifications and delivery location.
-            </p>
-            <ul className="space-y-2 text-sm grid md:grid-cols-2 gap-2">
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">Box Profile:</span>
-                <span className="text-muted-foreground">from KES 470/meter</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">Corrugated:</span>
-                <span className="text-muted-foreground">from KES 430/meter</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">Tile Profile:</span>
-                <span className="text-muted-foreground">from KES 520/meter</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">IBR Profile:</span>
-                <span className="text-muted-foreground">from KES 490/meter</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">Stone-Coated:</span>
-                <span className="text-muted-foreground">from KES 850/meter</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">Klip-Lok:</span>
-                <span className="text-muted-foreground">from KES 650/meter</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">Longspan:</span>
-                <span className="text-muted-foreground">from KES 540/meter</span>
-              </li>
-            </ul>
-            <p className="text-sm text-muted-foreground mt-4">
-              Discounts available for bulk and contractor orders. Contact our sales team for tiered pricing.
-            </p>
+          <CardContent className="space-y-8">
+            {/* Price Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {[
+                { name: "Box Profile", price: "470", popular: true },
+                { name: "Corrugated", price: "430", popular: false },
+                { name: "Tile Profile", price: "520", popular: false },
+                { name: "IBR Profile", price: "490", popular: false },
+                { name: "Stone-Coated", price: "850", popular: false },
+                { name: "Klip-Lok", price: "650", popular: false },
+                { name: "Longspan", price: "540", popular: false }
+              ].map((item, idx) => (
+                <div 
+                  key={idx}
+                  className={`relative p-5 rounded-lg border-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
+                    item.popular 
+                      ? 'border-primary bg-primary/5 shadow-md' 
+                      : 'border-border/50 bg-card hover:border-primary/50'
+                  }`}
+                >
+                  {item.popular && (
+                    <Badge className="absolute -top-2 -right-2 bg-gradient-primary">
+                      Popular
+                    </Badge>
+                  )}
+                  <div className="text-center">
+                    <h3 className="font-bold text-foreground mb-2">{item.name}</h3>
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span className="text-xs text-muted-foreground">from</span>
+                      <span className="text-2xl font-bold text-accent">KES {item.price}</span>
+                      <span className="text-sm text-muted-foreground">/meter</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Important Notes */}
+            <div className="bg-muted/50 rounded-lg p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <p className="text-sm text-foreground">
+                  <span className="font-semibold">Pricing Factors:</span> Final quotes depend on profile type, gauge thickness, color finish, quantity ordered, and delivery location.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <p className="text-sm text-foreground">
+                  <span className="font-semibold">Bulk Discounts:</span> Special tiered pricing available for contractor orders and large projects. Contact our sales team for volume quotes.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <p className="text-sm text-foreground">
+                  <span className="font-semibold">Free Consultation:</span> Our experts will help you choose the right roofing solution for your specific needs and budget.
+                </p>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
