@@ -5,7 +5,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { toast } from "sonner";
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle, Award } from "lucide-react";
 
 export const QuoteForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -88,15 +88,34 @@ export const QuoteForm = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-primary border-0">
-              <CardContent className="pt-6 text-primary-foreground">
-                <h3 className="font-semibold text-lg mb-3">Why Choose Self Mabati?</h3>
-                <ul className="space-y-2 text-sm text-primary-foreground/90">
-                  <li>✓ 25-year warranty on all products</li>
-                  <li>✓ Free nationwide delivery</li>
-                  <li>✓ ISO certified quality standards</li>
-                  <li>✓ Expert consultation and support</li>
-                  <li>✓ Competitive pricing with bulk discounts</li>
+            <Card className="bg-gradient-primary border-0 shadow-xl overflow-hidden relative">
+              <div className="absolute bottom-0 right-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 translate-x-24" />
+              <CardContent className="pt-8 pb-6 text-primary-foreground relative">
+                <h3 className="font-bold text-xl mb-5 flex items-center gap-2">
+                  <Award className="h-6 w-6 text-gold" />
+                  Why Choose Self Mabati?
+                </h3>
+                <ul className="space-y-3 text-sm text-primary-foreground/95">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>25-year warranty on all products</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>Free nationwide delivery</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>ISO certified quality standards</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>Expert consultation and support</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>Competitive pricing with bulk discounts</span>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -194,10 +213,12 @@ export const QuoteForm = () => {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
+                  variant="accent"
+                  size="lg"
+                  className="w-full text-base"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Submitting..." : "Submit Quote Request"}
+                  {isSubmitting ? "Submitting..." : "Get Your Free Quote →"}
                 </Button>
               </form>
             </CardContent>

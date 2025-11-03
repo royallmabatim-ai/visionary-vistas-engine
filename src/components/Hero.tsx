@@ -26,19 +26,19 @@ export const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 lg:py-32">
         <div className="max-w-3xl">
-          <Badge className="mb-6 bg-gold hover:bg-gold text-gold-foreground border-0 shadow-lg text-sm px-4 py-2">
+          <Badge className="mb-6 bg-gold hover:bg-gold text-gold-foreground border-0 shadow-accent text-sm px-5 py-2.5 animate-fade-in">
             <Award className="h-4 w-4 mr-2" />
             ISO Certified | 25-Year Warranty
           </Badge>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-            Durable. Affordable.
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary-foreground mb-6 leading-tight tracking-tight">
+            Premium Roofing.
             <br />
-            <span className="text-gold">Delivered Free.</span>
+            <span className="text-gold drop-shadow-lg">Built to Last.</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Premium roofing sheets tailored for Kenya's climate. Experience quality craftsmanship with nationwide delivery and expert support.
+          <p className="text-lg md:text-xl text-primary-foreground/95 mb-10 leading-relaxed max-w-2xl">
+            Kenya's trusted roofing partner. Experience superior quality, unbeatable prices, and nationwide free delivery on all orders.
           </p>
 
           {/* Feature Pills */}
@@ -58,19 +58,19 @@ export const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-5">
             <Button 
               size="lg"
               onClick={() => scrollToSection("products")}
-              className="bg-white text-primary hover:bg-white/90 shadow-xl font-semibold"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-accent hover:shadow-xl font-bold text-base"
             >
-              Browse Roofing Sheets
+              Browse Products
             </Button>
             <Button 
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("quote")}
-              className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold"
+              className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-primary font-bold"
             >
               Get Free Quote
             </Button>

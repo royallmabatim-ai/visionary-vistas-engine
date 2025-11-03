@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Package, Scissors, Truck, Wrench, Settings, Palette } from "lucide-react";
+import { Package, Scissors, Truck, Wrench, Settings, Palette, Award } from "lucide-react";
 
 export const Services = () => {
   const services = [
@@ -77,24 +77,24 @@ export const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/50"
+              className="group hover:shadow-xl transition-all duration-500 border-border/50 hover:border-primary/50 bg-gradient-card hover:-translate-y-1"
             >
               <CardHeader>
-                <div className="mb-4 p-3 bg-primary/10 rounded-lg w-fit group-hover:bg-primary/20 transition-colors">
+                <div className="mb-4 p-4 bg-gradient-primary rounded-xl w-fit group-hover:scale-110 transition-transform duration-300 shadow-md">
                   {service.icon}
                 </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
-                <CardDescription className="text-base">{service.description}</CardDescription>
+                <CardTitle className="text-xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
+                <CardDescription className="text-base leading-relaxed">{service.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="text-primary mt-1">•</span>
+                    <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                      <span className="text-accent mt-0.5 font-bold">✓</span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -105,29 +105,40 @@ export const Services = () => {
         </div>
 
         {/* Warranty Section */}
-        <Card className="mt-12 bg-gradient-primary border-0">
-          <CardHeader>
-            <CardTitle className="text-2xl text-primary-foreground">
+        <Card className="mt-16 bg-gradient-primary border-0 shadow-xl overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32" />
+          <CardHeader className="relative">
+            <CardTitle className="text-3xl text-primary-foreground flex items-center gap-3">
+              <Award className="h-8 w-8 text-gold" />
               Warranty & Certifications
             </CardTitle>
           </CardHeader>
-          <CardContent className="text-primary-foreground/90">
-            <p className="mb-4">
+          <CardContent className="text-primary-foreground/95 relative">
+            <p className="mb-6 text-lg leading-relaxed">
               All our roofing sheets are ISO certified and come with a comprehensive 25-year manufacturing warranty. 
               Coatings carry their own guarantees depending on the finish selected.
             </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold mb-2 text-primary-foreground">What the warranty covers</h4>
-                <ul className="space-y-1 text-sm">
-                  <li>• Manufacturing defects</li>
-                  <li>• Coating failure under normal use</li>
-                  <li>• Replacement guidance for covered failures</li>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h4 className="font-bold mb-4 text-primary-foreground text-lg">What the warranty covers</h4>
+                <ul className="space-y-2.5 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>Manufacturing defects</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>Coating failure under normal use</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>Replacement guidance for covered failures</span>
+                  </li>
                 </ul>
               </div>
-              <div>
-                <h4 className="font-semibold mb-2 text-primary-foreground">Documentation</h4>
-                <p className="text-sm">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h4 className="font-bold mb-4 text-primary-foreground text-lg">Documentation</h4>
+                <p className="text-sm leading-relaxed">
                   Warranty certificates provided with each invoice. Contact our sales team for full terms and conditions.
                 </p>
               </div>

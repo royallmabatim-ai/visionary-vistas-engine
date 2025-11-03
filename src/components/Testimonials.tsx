@@ -39,21 +39,24 @@ export const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/50"
+              className="group hover:shadow-xl transition-all duration-500 border-border/50 hover:border-primary/50 bg-gradient-card hover:-translate-y-2"
             >
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-between mb-4">
+              <CardContent className="pt-8 pb-6">
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gold text-gold drop-shadow-sm" />
+                  ))}
+                </div>
+                <p className="text-foreground italic leading-relaxed mb-6 text-base">"{testimonial.text}"</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-bold text-lg shadow-md">
+                    {testimonial.name.charAt(0)}
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-lg">{testimonial.name}</h4>
+                    <h4 className="font-bold text-lg text-foreground">{testimonial.name}</h4>
                     <p className="text-sm text-muted-foreground">{testimonial.location}</p>
                   </div>
-                  <div className="flex gap-1">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-gold text-gold" />
-                    ))}
-                  </div>
                 </div>
-                <p className="text-muted-foreground italic leading-relaxed">"{testimonial.text}"</p>
               </CardContent>
             </Card>
           ))}

@@ -78,7 +78,8 @@ export const Header = () => {
             </button>
             <Button 
               onClick={() => scrollToSection("quote")}
-              className="bg-gradient-primary hover:opacity-90 transition-opacity shadow-md"
+              variant="accent"
+              className="shadow-accent"
             >
               Get Quote
             </Button>
@@ -123,7 +124,8 @@ export const Header = () => {
             </button>
             <Button 
               onClick={() => scrollToSection("quote")}
-              className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
+              variant="accent"
+              className="w-full"
             >
               Get Quote
             </Button>
