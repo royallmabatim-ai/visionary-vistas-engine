@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Self Mabati</h3>
+            <h3 className="text-2xl font-bold mb-4">Royal Mabati</h3>
             <p className="text-primary-foreground/80 mb-4">
               Premium roofing solutions for Kenya's diverse climate. Quality you can trust, service you can count on.
             </p>
@@ -84,7 +84,7 @@ export const Footer = () => {
 
         <div className="border-t border-primary-foreground/20 pt-8 text-center">
           <p className="text-primary-foreground/60 text-sm">
-            &copy; {currentYear} Self Mabati. All rights reserved. | 25-Year Warranty | ISO Certified | Free Nationwide Delivery
+            &copy; {currentYear} Royal Mabati. All rights reserved. | 25-Year Warranty | ISO Certified | Free Nationwide Delivery
           </p>
         </div>
       </div>

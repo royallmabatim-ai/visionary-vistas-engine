@@ -19,7 +19,7 @@ export const Testimonials = () => {
       name: "Fatuma Yusuf",
       location: "Kilifi",
       rating: 5,
-      text: "I highly recommend Self Mabati. The tile profile looks amazing on our new house! Professional service from start to finish."
+      text: "I highly recommend Royal Mabati. The tile profile looks amazing on our new house! Professional service from start to finish."
     }
   ];
 
@@ -31,7 +31,7 @@ export const Testimonials = () => {
             What Our Customers Say
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Real feedback from homeowners and contractors across Kenya who trust Self Mabati for their roofing needs.
+            Real feedback from homeowners and contractors across Kenya who trust Royal Mabati for their roofing needs.
           </p>
         </div>
 

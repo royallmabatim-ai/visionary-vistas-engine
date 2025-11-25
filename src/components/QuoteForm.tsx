@@ -59,7 +59,7 @@ export const QuoteForm = () => {
                 </a>
 
                 <a 
-                  href="https://wa.me/254755199726?text=Hello Self Mabati, I need a quote."
+                  href="https://wa.me/254755199726?text=Hello Royal Mabati, I need a quote."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-[#25D366]/50 hover:bg-[#25D366]/5 transition-all group"
@@ -91,9 +91,9 @@ export const QuoteForm = () => {
             <Card className="bg-gradient-primary border-0 shadow-xl overflow-hidden relative">
               <div className="absolute bottom-0 right-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 translate-x-24" />
               <CardContent className="pt-8 pb-6 text-primary-foreground relative">
-                <h3 className="font-bold text-xl mb-5 flex items-center gap-2">
+                  <h3 className="font-bold text-xl mb-5 flex items-center gap-2">
                   <Award className="h-6 w-6 text-gold" />
-                  Why Choose Self Mabati?
+                  Why Choose Royal Mabati?
                 </h3>
                 <ul className="space-y-3 text-sm text-primary-foreground/95">
                   <li className="flex items-start gap-2">

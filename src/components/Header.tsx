@@ -59,7 +59,7 @@ export const Header = () => {
             onClick={() => scrollToSection("hero")}
             className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
-            Self Mabati
+            Royal Mabati
           </button>
 
           {/* Desktop Navigation */}
