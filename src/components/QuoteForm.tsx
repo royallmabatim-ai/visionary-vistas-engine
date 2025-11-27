@@ -74,7 +74,7 @@ export const QuoteForm = () => {
                 </a>
 
                 <a 
-                  href="mailto:salesroyalmabati@gmail.com"
+                  href="mailto:salesroyalmabatii@gmail.com"
                   className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-muted/50 transition-all group"
                 >
                   <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
@@ -82,7 +82,7 @@ export const QuoteForm = () => {
                   </div>
                   <div>
                     <p className="font-medium">Email Us</p>
-                    <p className="text-sm text-muted-foreground">salesroyalmabati@gmail.com</p>
+                    <p className="text-sm text-muted-foreground">salesroyalmabatii@gmail.com</p>
                   </div>
                 </a>
               </CardContent>

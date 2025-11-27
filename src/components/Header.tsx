@@ -32,9 +32,9 @@ export const Header = () => {
               <Phone className="h-4 w-4" />
               <span>+254 755 199 726</span>
             </a>
-            <a href="mailto:salesroyalmabati@gmail.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href="mailto:salesroyalmabatii@gmail.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="h-4 w-4" />
-              <span>salesroyalmabati@gmail.com</span>
+              <span>salesroyalmabatii@gmail.com</span>
             </a>
           </div>
           <a 
