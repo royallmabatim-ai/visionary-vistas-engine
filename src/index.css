@@ -2,107 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Royal Mabati Design System - Inspired by Gypsum Ceiling Kenya
+   Professional red/blue accent theme with clean modern aesthetic
 */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 210 20% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 210 20% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 210 20% 20%;
 
-    --primary: 210 100% 28%;
+    /* Primary: Deep Red - matching the reference site */
+    --primary: 5 75% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 18% 46%;
+    /* Secondary: Steel Blue for professional contrast */
+    --secondary: 205 60% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 46%;
+    --muted: 210 15% 96%;
+    --muted-foreground: 210 10% 45%;
 
-    --accent: 25 95% 53%;
+    /* Accent: Bright Red for CTAs and highlights */
+    --accent: 5 85% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --gold: 45 93% 58%;
-    --gold-foreground: 215 25% 15%;
+    /* Gold for premium badges */
+    --gold: 45 100% 50%;
+    --gold-foreground: 210 20% 15%;
+
+    /* Sale badge green */
+    --success: 145 65% 42%;
+    --success-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 90%;
-    --input: 210 20% 92%;
-    --ring: 210 100% 28%;
+    --border: 210 15% 88%;
+    --input: 210 15% 92%;
+    --ring: 5 75% 45%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 28%) 0%, hsl(205, 90%, 35%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(210, 100%, 25%) 0%, hsl(210, 100%, 35%) 50%, hsl(205, 95%, 40%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(25, 95%, 53%) 0%, hsl(20, 100%, 58%) 100%);
-    --gradient-steel: linear-gradient(135deg, hsl(200, 15%, 35%) 0%, hsl(200, 18%, 46%) 100%);
-    --gradient-card: linear-gradient(to bottom, hsl(0, 0%, 100%) 0%, hsl(210, 25%, 98%) 100%);
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(5, 75%, 45%) 0%, hsl(5, 80%, 35%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(5, 75%, 40%) 0%, hsl(5, 80%, 30%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(205, 60%, 45%) 0%, hsl(205, 65%, 35%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(210, 20%, 98%) 100%);
     
-    --shadow-sm: 0 2px 8px rgba(0, 71, 143, 0.08);
-    --shadow-md: 0 4px 16px rgba(0, 71, 143, 0.12);
-    --shadow-lg: 0 8px 32px rgba(0, 71, 143, 0.15);
-    --shadow-xl: 0 16px 48px rgba(0, 71, 143, 0.18);
-    --shadow-accent: 0 4px 16px rgba(255, 119, 51, 0.25);
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.15);
+    --shadow-accent: 0 4px 16px rgba(185, 28, 28, 0.25);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 274 69% 34%;
+    --sidebar-primary: 5 75% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 274 69% 34%;
+    --sidebar-accent-foreground: 5 75% 45%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 274 69% 34%;
+    --sidebar-ring: 5 75% 45%;
   }
 
   .dark {
-    --background: 215 25% 10%;
+    --background: 210 20% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 215 25% 13%;
+    --card: 210 20% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 215 25% 13%;
+    --popover: 210 20% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 210 90% 50%;
+    --primary: 5 80% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 18% 35%;
+    --secondary: 205 50% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 215 20% 20%;
-    --muted-foreground: 215 10% 65%;
+    --muted: 210 15% 18%;
+    --muted-foreground: 210 10% 60%;
 
-    --accent: 25 95% 55%;
+    --accent: 5 85% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --gold: 45 93% 58%;
-    --gold-foreground: 215 25% 10%;
+    --gold: 45 100% 55%;
+    --gold-foreground: 210 20% 10%;
 
-    --destructive: 0 62% 40%;
+    --success: 145 65% 48%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 20% 22%;
-    --input: 215 20% 22%;
-    --ring: 210 90% 50%;
+    --border: 210 15% 22%;
+    --input: 210 15% 22%;
+    --ring: 5 80% 55%;
 
-    --sidebar-background: 240 10% 10%;
+    --sidebar-background: 210 15% 10%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 274 80% 55%;
+    --sidebar-primary: 5 80% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 6% 20%;
+    --sidebar-accent: 210 10% 18%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 6% 20%;
-    --sidebar-ring: 274 80% 55%;
+    --sidebar-border: 210 10% 20%;
+    --sidebar-ring: 5 80% 55%;
   }
 }
 
@@ -118,5 +130,12 @@ All colors MUST be HSL.
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+}
+
+/* Top accent bar like the reference site */
+@layer components {
+  .accent-bar {
+    @apply h-1 bg-primary;
   }
 }

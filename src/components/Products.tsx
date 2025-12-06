@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ShoppingCart } from "lucide-react";
 import boxProfileImage from "@/assets/box-profile-roofing.jpg";
 import corrugatedImage from "@/assets/corrugated-roofing.jpg";
 import tileProfileImage from "@/assets/tile-profile-roofing.jpg";
@@ -11,82 +11,72 @@ import stoneCoatedImage from "@/assets/stone-coated-roofing.jpg";
 import kliplokImage from "@/assets/kliplok-roofing.jpg";
 import longspanImage from "@/assets/longspan-roofing.jpg";
 
-type ProductType = "all" | "glossy" | "classic" | "tile" | "ibr" | "stone" | "kliplok" | "longspan";
-
-
-
 export const Products = () => {
-  const [filter, setFilter] = useState<ProductType>("all");
-
   const products = [
     {
-      type: "glossy" as ProductType,
-      title: "Box Profile",
+      title: "Box Profile Roofing Sheet",
       description: "Glossy finish, high durability, ideal for modern homes and commercial buildings.",
-      price: "KES 470/meter",
-      badge: "Best Seller",
-      badgeVariant: "default" as const,
-      image: boxProfileImage
+      originalPrice: "520",
+      salePrice: "470",
+      unit: "/meter",
+      image: boxProfileImage,
+      onSale: true
     },
     {
-      type: "classic" as ProductType,
-      title: "Corrugated",
-      description: "Traditional design with high strength and weather resistance for all environments.",
-      price: "KES 430/meter",
-      badge: "Classic",
-      badgeVariant: "secondary" as const,
-      image: corrugatedImage
+      title: "Corrugated Roofing Sheet",
+      description: "Traditional design with high strength and weather resistance.",
+      originalPrice: "480",
+      salePrice: "430",
+      unit: "/meter",
+      image: corrugatedImage,
+      onSale: true
     },
     {
-      type: "tile" as ProductType,
-      title: "Tile Profile",
-      description: "Elegant roofing with a tile-like finish, perfect for upscale residential projects.",
-      price: "KES 520/meter",
-      badge: "Premium",
-      badgeVariant: "default" as const,
-      image: tileProfileImage
+      title: "Tile Profile Roofing",
+      description: "Elegant roofing with tile-like finish for upscale projects.",
+      originalPrice: "580",
+      salePrice: "520",
+      unit: "/meter",
+      image: tileProfileImage,
+      onSale: true
     },
     {
-      type: "ibr" as ProductType,
-      title: "IBR Profile",
-      description: "Inverted Box Rib design with superior strength, widely used in industrial applications.",
-      price: "KES 490/meter",
-      badge: "Industrial",
-      badgeVariant: "secondary" as const,
-      image: ibrProfileImage
+      title: "IBR Profile Sheet",
+      description: "Inverted Box Rib design with superior strength for industrial use.",
+      originalPrice: "540",
+      salePrice: "490",
+      unit: "/meter",
+      image: ibrProfileImage,
+      onSale: true
     },
     {
-      type: "stone" as ProductType,
-      title: "Stone-Coated",
-      description: "Luxury stone-coated steel with exceptional aesthetics and 50-year lifespan.",
-      price: "KES 850/meter",
-      badge: "Luxury",
-      badgeVariant: "default" as const,
-      image: stoneCoatedImage
+      title: "Stone-Coated Steel Roofing",
+      description: "Luxury finish with exceptional aesthetics and 50-year lifespan.",
+      originalPrice: "950",
+      salePrice: "850",
+      unit: "/meter",
+      image: stoneCoatedImage,
+      onSale: true
     },
     {
-      type: "kliplok" as ProductType,
-      title: "Klip-Lok",
-      description: "Concealed fix standing seam system for modern architectural applications.",
-      price: "KES 650/meter",
-      badge: "Architectural",
-      badgeVariant: "secondary" as const,
-      image: kliplokImage
+      title: "Klip-Lok Standing Seam",
+      description: "Concealed fix system for modern architectural applications.",
+      originalPrice: "720",
+      salePrice: "650",
+      unit: "/meter",
+      image: kliplokImage,
+      onSale: true
     },
     {
-      type: "longspan" as ProductType,
-      title: "Longspan",
-      description: "Wide coverage profile for fast installation, ideal for warehouses and factories.",
-      price: "KES 540/meter",
-      badge: "Commercial",
-      badgeVariant: "secondary" as const,
-      image: longspanImage
+      title: "Longspan Roofing Profile",
+      description: "Wide coverage for fast installation, ideal for warehouses.",
+      originalPrice: "600",
+      salePrice: "540",
+      unit: "/meter",
+      image: longspanImage,
+      onSale: true
     }
   ];
-
-  const filteredProducts = filter === "all" 
-    ? products 
-    : products.filter(product => product.type === filter);
 
   const scrollToQuote = () => {
     const element = document.getElementById("quote");
@@ -96,122 +86,91 @@ export const Products = () => {
   };
 
   return (
-    <section id="products" className="py-20 px-4 bg-background">
+    <section id="products" className="py-16 px-4 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-            Product Gallery
+        {/* Section Header */}
+        <div className="text-center mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+            Explore Roofing Solutions, Profiles and Accessories
           </h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Choose from our premium range of roofing sheets, each designed for durability and style.
+          <p className="text-muted-foreground max-w-4xl mx-auto">
+            Royal Mabati product range includes roofing sheet systems for residential and commercial applications. 
+            Our systems are complemented with a strong range of accessories and finishing products.
           </p>
+        </div>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button
-              variant={filter === "all" ? "default" : "outline"}
-              onClick={() => setFilter("all")}
-              className={filter === "all" ? "bg-gradient-primary" : ""}
-            >
-              All Products
-            </Button>
-            <Button
-              variant={filter === "glossy" ? "default" : "outline"}
-              onClick={() => setFilter("glossy")}
-              className={filter === "glossy" ? "bg-gradient-primary" : ""}
-            >
-              Box Profile
-            </Button>
-            <Button
-              variant={filter === "classic" ? "default" : "outline"}
-              onClick={() => setFilter("classic")}
-              className={filter === "classic" ? "bg-gradient-primary" : ""}
-            >
-              Corrugated
-            </Button>
-            <Button
-              variant={filter === "tile" ? "default" : "outline"}
-              onClick={() => setFilter("tile")}
-              className={filter === "tile" ? "bg-gradient-primary" : ""}
-            >
-              Tile
-            </Button>
-            <Button
-              variant={filter === "ibr" ? "default" : "outline"}
-              onClick={() => setFilter("ibr")}
-              className={filter === "ibr" ? "bg-gradient-primary" : ""}
-            >
-              IBR
-            </Button>
-            <Button
-              variant={filter === "stone" ? "default" : "outline"}
-              onClick={() => setFilter("stone")}
-              className={filter === "stone" ? "bg-gradient-primary" : ""}
-            >
-              Stone-Coated
-            </Button>
-            <Button
-              variant={filter === "kliplok" ? "default" : "outline"}
-              onClick={() => setFilter("kliplok")}
-              className={filter === "kliplok" ? "bg-gradient-primary" : ""}
-            >
-              Klip-Lok
-            </Button>
-            <Button
-              variant={filter === "longspan" ? "default" : "outline"}
-              onClick={() => setFilter("longspan")}
-              className={filter === "longspan" ? "bg-gradient-primary" : ""}
-            >
-              Longspan
-            </Button>
+        {/* Decorative Divider */}
+        <div className="flex items-center justify-center gap-2 mb-12">
+          <div className="h-px bg-border flex-1 max-w-xs" />
+          <div className="flex gap-1">
+            <div className="w-2 h-6 bg-secondary rounded-sm" />
+            <div className="w-2 h-6 bg-primary rounded-sm" />
+            <div className="w-2 h-6 bg-secondary rounded-sm" />
           </div>
+          <div className="h-px bg-border flex-1 max-w-xs" />
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {products.map((product, index) => (
             <Card 
               key={index}
-              className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/50"
+              className="group overflow-hidden border border-border/50 hover:shadow-xl transition-all duration-300 bg-card"
             >
-              <div className="relative overflow-hidden h-56">
+              {/* Image with Sale Badge */}
+              <div className="relative overflow-hidden aspect-square">
+                {product.onSale && (
+                  <Badge className="absolute top-3 right-3 z-10 bg-success hover:bg-success text-success-foreground font-semibold text-xs px-2 py-1">
+                    Sale!
+                  </Badge>
+                )}
                 <img 
                   src={product.image} 
                   alt={product.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute top-4 right-4">
-                  <Badge variant={product.badgeVariant} className="shadow-lg">
-                    {product.badge}
-                  </Badge>
-                </div>
               </div>
-              <CardHeader>
-                <CardTitle className="text-2xl">{product.title}</CardTitle>
-                <CardDescription className="text-base">{product.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-bold text-accent">{product.price}</span>
+
+              {/* Content */}
+              <CardContent className="p-4">
+                <h3 className="font-semibold text-secondary hover:text-primary transition-colors cursor-pointer mb-2 line-clamp-2">
+                  {product.title}
+                </h3>
+                
+                {/* Pricing */}
+                <div className="flex items-baseline gap-2 mb-4">
+                  {product.onSale && (
+                    <span className="text-muted-foreground line-through text-sm">
+                      KSh {product.originalPrice}
+                    </span>
+                  )}
+                  <span className="text-primary font-bold text-lg">
+                    KSh {product.salePrice}
+                    <span className="text-xs font-normal text-muted-foreground">{product.unit}</span>
+                  </span>
                 </div>
+
+                {/* Actions */}
                 <div className="flex gap-2">
                   <Button 
-                    className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white"
+                    size="sm"
+                    className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-background text-xs"
                     asChild
                   >
                     <a 
-                      href={`https://wa.me/254755199726?text=I'm interested in ${product.title} roofing sheets.`}
+                      href={`https://wa.me/254755199726?text=I'm interested in ${product.title}.`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <MessageCircle className="h-4 w-4 mr-2" />
+                      <MessageCircle className="h-3 w-3 mr-1" />
                       WhatsApp
                     </a>
                   </Button>
                   <Button 
+                    size="sm"
                     variant="outline"
                     onClick={scrollToQuote}
-                    className="flex-1 border-gold text-foreground hover:bg-gold/10"
+                    className="flex-1 text-xs border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                   >
                     Get Quote
                   </Button>
@@ -221,76 +180,48 @@ export const Products = () => {
           ))}
         </div>
 
-        {/* Pricing Note */}
-        <Card className="mt-12 border-primary/20 shadow-elegant bg-gradient-to-br from-background via-background to-primary/5">
-          <CardHeader className="text-center pb-8">
-            <CardTitle className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
-              Pricing & Estimates
-            </CardTitle>
-            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-              Transparent pricing for quality roofing solutions. All prices are starting rates for standard specifications.
-            </p>
-          </CardHeader>
-          <CardContent className="space-y-8">
-            {/* Price Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {[
-                { name: "Box Profile", price: "470", popular: true },
-                { name: "Corrugated", price: "430", popular: false },
-                { name: "Tile Profile", price: "520", popular: false },
-                { name: "IBR Profile", price: "490", popular: false },
-                { name: "Stone-Coated", price: "850", popular: false },
-                { name: "Klip-Lok", price: "650", popular: false },
-                { name: "Longspan", price: "540", popular: false }
-              ].map((item, idx) => (
-                <div 
-                  key={idx}
-                  className={`relative p-5 rounded-lg border-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
-                    item.popular 
-                      ? 'border-primary bg-primary/5 shadow-md' 
-                      : 'border-border/50 bg-card hover:border-primary/50'
-                  }`}
-                >
-                  {item.popular && (
-                    <Badge className="absolute -top-2 -right-2 bg-gradient-primary">
-                      Popular
-                    </Badge>
-                  )}
-                  <div className="text-center">
-                    <h3 className="font-bold text-foreground mb-2">{item.name}</h3>
-                    <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-xs text-muted-foreground">from</span>
-                      <span className="text-2xl font-bold text-accent">KES {item.price}</span>
-                      <span className="text-sm text-muted-foreground">/meter</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Important Notes */}
-            <div className="bg-muted/50 rounded-lg p-6 space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <p className="text-sm text-foreground">
-                  <span className="font-semibold">Pricing Factors:</span> Final quotes depend on profile type, gauge thickness, color finish, quantity ordered, and delivery location.
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <p className="text-sm text-foreground">
-                  <span className="font-semibold">Bulk Discounts:</span> Special tiered pricing available for contractor orders and large projects. Contact our sales team for volume quotes.
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <p className="text-sm text-foreground">
-                  <span className="font-semibold">Free Consultation:</span> Our experts will help you choose the right roofing solution for your specific needs and budget.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Bottom Description */}
+        <div className="mt-16 bg-card border border-border rounded-lg p-8">
+          <h3 className="text-xl font-bold text-foreground mb-4">
+            Royal Mabati is a Market Leader in Roofing Solutions in Kenya
+          </h3>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            We are the leading supplier of a wide range of roofing systems and products. Our roofing sheets 
+            and accessories are backed by maximum guarantee, fair prices, and unmatched professionalism. 
+            Some of our notable roofing products include:
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-4 text-sm text-muted-foreground">
+            <ul className="space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">1.</span>
+                <span><strong>Box Profile Sheets</strong> – Available in various gauges and colors</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">2.</span>
+                <span><strong>Corrugated Sheets</strong> – Classic design with excellent durability</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">3.</span>
+                <span><strong>Tile Profile</strong> – Elegant finish for modern homes</span>
+              </li>
+            </ul>
+            <ul className="space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">4.</span>
+                <span><strong>IBR Profile</strong> – Industrial strength for commercial use</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">5.</span>
+                <span><strong>Stone-Coated</strong> – Premium aesthetics with 50-year warranty</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">6.</span>
+                <span><strong>Longspan</strong> – Wide coverage for warehouses and factories</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
