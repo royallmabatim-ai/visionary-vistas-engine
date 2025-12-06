@@ -1,228 +1,219 @@
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-import { toast } from "sonner";
-import { Phone, Mail, MessageCircle, Award } from "lucide-react";
+import { Card, CardContent } from "./ui/card";
+import { Label } from "./ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export const QuoteForm = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Validate and encode for WhatsApp
+    const encodedName = encodeURIComponent(formData.name.trim());
+    const encodedEmail = encodeURIComponent(formData.email.trim());
+    const encodedPhone = encodeURIComponent(formData.phone.trim());
+    const encodedSubject = encodeURIComponent(formData.subject.trim());
+    const encodedMessage = encodeURIComponent(formData.message.trim());
     
-    toast.success("Quote request submitted successfully! We'll contact you shortly.");
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    const whatsappMessage = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0ASubject: ${encodedSubject}%0AMessage: ${encodedMessage}`;
+    window.open(`https://wa.me/254755199726?text=${whatsappMessage}`, "_blank");
+    
+    toast({
+      title: "Redirecting to WhatsApp",
+      description: "Complete your inquiry via WhatsApp for faster response.",
+    });
+
+    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
   };
 
+  const locations = [
+    {
+      name: "ROYAL MABATI - NAIROBI",
+      address: "Industrial Area, Nairobi",
+      phone: "+254 755 199 726"
+    },
+    {
+      name: "ROYAL MABATI - MOMBASA",
+      address: "Changamwe, Mombasa",
+      phone: "+254 755 199 726"
+    },
+    {
+      name: "ROYAL MABATI - KISUMU",
+      address: "Kisumu Town, Nyanza",
+      phone: "+254 755 199 726"
+    }
+  ];
+
   return (
-    <section id="quote" className="py-20 px-4 bg-background">
+    <section id="quote" className="py-16 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-            Request a Quote
+        {/* Section Header */}
+        <div className="text-center mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+            GET IN TOUCH
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Fill out the form below and we'll get back to you with a personalized roofing quote within 24 hours.
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Fill in the required details. We will respond ASAP. If you have a long list of materials to order, feel free to share it.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <Card className="border-primary/20">
-              <CardHeader>
-                <CardTitle>Get in Touch</CardTitle>
-                <CardDescription>
-                  Prefer to reach out directly? Contact us through any of these channels.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <a 
-                  href="tel:+254755199726"
-                  className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-muted/50 transition-all group"
-                >
-                  <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                    <Phone className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Call Us</p>
-                    <p className="text-sm text-muted-foreground">+254 755 199 726</p>
-                  </div>
-                </a>
-
-                <a 
-                  href="https://wa.me/254755199726?text=Hello Royal Mabati, I need a quote."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-[#25D366]/50 hover:bg-[#25D366]/5 transition-all group"
-                >
-                  <div className="p-2 bg-[#25D366]/10 rounded-lg group-hover:bg-[#25D366]/20 transition-colors">
-                    <MessageCircle className="h-5 w-5 text-[#25D366]" />
-                  </div>
-                  <div>
-                    <p className="font-medium">WhatsApp</p>
-                    <p className="text-sm text-muted-foreground">Chat with us instantly</p>
-                  </div>
-                </a>
-
-                <a 
-                  href="mailto:salesroyalmabatii@gmail.com"
-                  className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-muted/50 transition-all group"
-                >
-                  <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                    <Mail className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Email Us</p>
-                    <p className="text-sm text-muted-foreground">salesroyalmabatii@gmail.com</p>
-                  </div>
-                </a>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-primary border-0 shadow-xl overflow-hidden relative">
-              <div className="absolute bottom-0 right-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 translate-x-24" />
-              <CardContent className="pt-8 pb-6 text-primary-foreground relative">
-                  <h3 className="font-bold text-xl mb-5 flex items-center gap-2">
-                  <Award className="h-6 w-6 text-gold" />
-                  Why Choose Royal Mabati?
-                </h3>
-                <ul className="space-y-3 text-sm text-primary-foreground/95">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gold font-bold mt-0.5">✓</span>
-                    <span>25-year warranty on all products</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gold font-bold mt-0.5">✓</span>
-                    <span>Free nationwide delivery</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gold font-bold mt-0.5">✓</span>
-                    <span>ISO certified quality standards</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gold font-bold mt-0.5">✓</span>
-                    <span>Expert consultation and support</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gold font-bold mt-0.5">✓</span>
-                    <span>Competitive pricing with bulk discounts</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+        {/* Decorative Divider */}
+        <div className="flex items-center justify-center gap-2 mb-12">
+          <div className="h-px bg-border flex-1 max-w-xs" />
+          <div className="flex gap-1">
+            <div className="w-2 h-6 bg-secondary rounded-sm" />
+            <div className="w-2 h-6 bg-primary rounded-sm" />
+            <div className="w-2 h-6 bg-secondary rounded-sm" />
           </div>
+          <div className="h-px bg-border flex-1 max-w-xs" />
+        </div>
 
-          {/* Quote Form */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Request Your Quote</CardTitle>
-              <CardDescription>
-                Provide your details and we'll prepare a customized quote for your project.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Full Name *
-                    </label>
-                    <Input 
-                      id="name"
-                      name="name"
-                      placeholder="John Doe" 
-                      required 
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium">
-                      Phone Number *
-                    </label>
-                    <Input 
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="+254 7XX XXX XXX" 
-                      required 
-                    />
-                  </div>
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <Card className="border border-border/50 shadow-lg">
+            <CardContent className="p-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <Label htmlFor="name" className="text-sm font-medium text-foreground">
+                    Your name *
+                  </Label>
+                  <Input
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    required
+                    maxLength={100}
+                    className="mt-1"
+                  />
                 </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Email Address *
-                  </label>
-                  <Input 
+                
+                <div>
+                  <Label htmlFor="email" className="text-sm font-medium text-foreground">
+                    Your email *
+                  </Label>
+                  <Input
                     id="email"
-                    name="email"
                     type="email"
-                    placeholder="john@example.com" 
-                    required 
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    required
+                    maxLength={255}
+                    className="mt-1"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="location" className="text-sm font-medium">
-                    Location *
-                  </label>
-                  <Input 
-                    id="location"
-                    name="location"
-                    placeholder="e.g., Kilifi, Mombasa, Nairobi" 
-                    required 
+                <div>
+                  <Label htmlFor="phone" className="text-sm font-medium text-foreground">
+                    Phone number
+                  </Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    maxLength={20}
+                    className="mt-1"
                   />
                 </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="product" className="text-sm font-medium">
-                    Roofing Type *
-                  </label>
-                  <Select name="product" required>
-                    <SelectTrigger id="product">
-                      <SelectValue placeholder="Select roofing type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="box-profile">Box Profile</SelectItem>
-                      <SelectItem value="corrugated">Corrugated</SelectItem>
-                      <SelectItem value="tile-profile">Tile Profile</SelectItem>
-                      <SelectItem value="not-sure">Not Sure / Need Advice</SelectItem>
-                    </SelectContent>
-                  </Select>
+                
+                <div>
+                  <Label htmlFor="subject" className="text-sm font-medium text-foreground">
+                    Subject
+                  </Label>
+                  <Input
+                    id="subject"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                    maxLength={200}
+                    className="mt-1"
+                  />
                 </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Additional Details
-                  </label>
-                  <Textarea 
+                
+                <div>
+                  <Label htmlFor="message" className="text-sm font-medium text-foreground">
+                    Your message (optional)
+                  </Label>
+                  <Textarea
                     id="message"
-                    name="message"
-                    placeholder="Tell us about your project requirements, dimensions, timeline, etc."
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
                     rows={4}
+                    maxLength={1000}
+                    className="mt-1"
                   />
                 </div>
-
+                
                 <Button 
-                  type="submit" 
-                  variant="accent"
-                  size="lg"
-                  className="w-full text-base"
-                  disabled={isSubmitting}
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
-                  {isSubmitting ? "Submitting..." : "Get Your Free Quote →"}
+                  Send Message
                 </Button>
               </form>
             </CardContent>
           </Card>
+
+          {/* Locations */}
+          <div>
+            <h3 className="text-xl font-bold text-primary mb-6">VISIT OUR LOCATIONS</h3>
+            <p className="text-muted-foreground mb-8">
+              Get in touch with us, we are here to assist you from service dispensation to ordering of our products
+            </p>
+
+            <div className="space-y-6">
+              {locations.map((location, index) => (
+                <Card key={index} className="border border-border/50 hover:shadow-md transition-shadow">
+                  <CardContent className="p-5">
+                    <h4 className="font-bold text-secondary mb-3">{location.name}</h4>
+                    <div className="space-y-2 text-sm text-muted-foreground">
+                      <div className="flex items-start gap-2">
+                        <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span>{location.address}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Phone className="h-4 w-4 text-primary flex-shrink-0" />
+                        <a 
+                          href={`tel:${location.phone.replace(/\s/g, '')}`}
+                          className="hover:text-primary transition-colors"
+                        >
+                          {location.phone}
+                        </a>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Contact Info */}
+            <div className="mt-8 p-6 bg-muted/50 rounded-lg">
+              <div className="flex items-center gap-3 mb-3">
+                <Mail className="h-5 w-5 text-primary" />
+                <a 
+                  href="mailto:salesroyalmabatii@gmail.com"
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  salesroyalmabatii@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Clock className="h-5 w-5 text-primary" />
+                <span className="text-muted-foreground">Mon - Sat: 8:00 AM - 6:00 PM</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
