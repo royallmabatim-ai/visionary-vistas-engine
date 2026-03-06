@@ -1,81 +1,39 @@
-import { Button } from "./ui/button";
+import { Home, Building2, Layers, Wrench, Gem, Package, Truck, Scissors } from "lucide-react";
 
 const categories = [
-  {
-    title: "Box Profile",
-    subtitle: "Roofing Sheets",
-    description: "Our widest range of high-quality box profile sheets that meet different performance requirements. Available in various gauges, colors, and finishes.",
-  },
-  {
-    title: "Corrugated",
-    subtitle: "Roofing Sheets",
-    description: "Classic corrugated design with excellent strength and weather resistance. Perfect for both residential and commercial applications.",
-  },
-  {
-    title: "Tile Profile",
-    subtitle: "Roofing Sheets",
-    description: "Elegant tile profile sheets that give your roof a premium appearance. Durable construction with decorative finish.",
-  },
-  {
-    title: "IBR Profile",
-    subtitle: "Roofing Sheets",
-    description: "Inverted Box Rib profile with superior structural strength. Widely used in industrial and commercial buildings.",
-  },
-  {
-    title: "Roofing",
-    subtitle: "Accessories",
-    description: "Complete range of roofing accessories including ridge caps, gutters, flashings, screws, sealants, and more.",
-  },
-  {
-    title: "Stone-Coated",
-    subtitle: "Steel Roofing",
-    description: "Premium stone-coated steel roofing with exceptional aesthetics and a 50-year lifespan. Ultimate luxury roofing solution.",
-  },
-  {
-    title: "Installation",
-    subtitle: "Services",
-    description: "Professional roofing installation services by certified contractors. Quality workmanship guaranteed with after-sales support.",
-  },
-  {
-    title: "Delivery",
-    subtitle: "Nationwide",
-    description: "Free nationwide delivery for qualifying orders. Scheduled delivery slots available for your convenience.",
-  },
+  { icon: <Layers className="h-5 w-5" />, title: "Box Profile", subtitle: "Sheets" },
+  { icon: <Home className="h-5 w-5" />, title: "Corrugated", subtitle: "Sheets" },
+  { icon: <Gem className="h-5 w-5" />, title: "Tile Profile", subtitle: "Sheets" },
+  { icon: <Building2 className="h-5 w-5" />, title: "IBR Profile", subtitle: "Sheets" },
+  { icon: <Package className="h-5 w-5" />, title: "Roofing", subtitle: "Accessories" },
+  { icon: <Gem className="h-5 w-5" />, title: "Stone-Coated", subtitle: "Steel" },
+  { icon: <Wrench className="h-5 w-5" />, title: "Installation", subtitle: "Services" },
+  { icon: <Truck className="h-5 w-5" />, title: "Free Delivery", subtitle: "Nationwide" },
 ];
 
 export const ProductCategories = () => {
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="py-12 px-4 bg-background">
+    <section className="py-6 px-4 bg-muted/40 border-y border-border/50">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {categories.map((category, index) => (
-            <div 
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+          {categories.map((cat, index) => (
+            <button
               key={index}
-              className="group p-5 bg-muted/30 hover:bg-muted/50 border border-border/50 rounded-lg transition-all duration-300 hover:shadow-md cursor-pointer"
               onClick={() => scrollToSection("products")}
+              className="group flex flex-col items-center gap-2 py-4 px-2 rounded-xl hover:bg-background hover:shadow-md transition-all duration-300"
             >
-              <h3 className="font-bold text-secondary group-hover:text-primary transition-colors">
-                <span className="text-primary">{category.title}</span>
-                <br />
-                <span className="text-sm font-normal text-muted-foreground">{category.subtitle}</span>
-              </h3>
-              <p className="text-xs text-muted-foreground mt-2 line-clamp-3">
-                {category.description}
-              </p>
-              <Button 
-                variant="link" 
-                className="p-0 h-auto mt-2 text-xs text-secondary hover:text-primary"
-              >
-                Read More →
-              </Button>
-            </div>
+              <div className="p-2.5 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                {cat.icon}
+              </div>
+              <div className="text-center">
+                <p className="text-xs font-semibold text-foreground leading-tight">{cat.title}</p>
+                <p className="text-[10px] text-muted-foreground">{cat.subtitle}</p>
+              </div>
+            </button>
           ))}
         </div>
       </div>

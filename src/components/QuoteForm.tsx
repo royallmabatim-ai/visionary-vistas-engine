@@ -5,7 +5,7 @@ import { Textarea } from "./ui/textarea";
 import { Card, CardContent } from "./ui/card";
 import { Label } from "./ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 export const QuoteForm = () => {
   const { toast } = useToast();
@@ -14,22 +14,20 @@ export const QuoteForm = () => {
     email: "",
     phone: "",
     subject: "",
-    message: ""
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate and encode for WhatsApp
     const encodedName = encodeURIComponent(formData.name.trim());
     const encodedEmail = encodeURIComponent(formData.email.trim());
     const encodedPhone = encodeURIComponent(formData.phone.trim());
     const encodedSubject = encodeURIComponent(formData.subject.trim());
     const encodedMessage = encodeURIComponent(formData.message.trim());
-    
+
     const whatsappMessage = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0ASubject: ${encodedSubject}%0AMessage: ${encodedMessage}`;
     window.open(`https://wa.me/254752543019?text=${whatsappMessage}`, "_blank");
-    
+
     toast({
       title: "Redirecting to WhatsApp",
       description: "Complete your inquiry via WhatsApp for faster response.",
@@ -39,178 +37,163 @@ export const QuoteForm = () => {
   };
 
   const locations = [
-    {
-      name: "ROYAL MABATI - NAIROBI",
-      address: "Industrial Area, Nairobi",
-      phone: "+254 755 199 726"
-    },
-    {
-      name: "ROYAL MABATI - MOMBASA",
-      address: "Changamwe, Mombasa",
-      phone: "+254 755 199 726"
-    },
-    {
-      name: "ROYAL MABATI - KISUMU",
-      address: "Kisumu Town, Nyanza",
-      phone: "+254 755 199 726"
-    }
+    { name: "NAIROBI", address: "Industrial Area, Nairobi", phone: "+254 752 543 019" },
+    { name: "MOMBASA", address: "Changamwe, Mombasa", phone: "+254 752 543 019" },
+    { name: "KISUMU", address: "Kisumu Town, Nyanza", phone: "+254 752 543 019" },
   ];
 
   return (
-    <section id="quote" className="py-16 px-4 bg-background">
+    <section id="quote" className="py-20 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-            GET IN TOUCH
+        <div className="text-center mb-14 max-w-3xl mx-auto">
+          <span className="section-subtitle">Contact</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            Get a <span className="text-primary">Free Quote</span> Today
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Fill in the required details. We will respond ASAP. If you have a long list of materials to order, feel free to share it.
+          <p className="text-muted-foreground">
+            Fill in the details below and we'll respond within 24 hours. For
+            urgent inquiries, call or WhatsApp us directly.
           </p>
         </div>
 
-        {/* Decorative Divider */}
-        <div className="flex items-center justify-center gap-2 mb-12">
-          <div className="h-px bg-border flex-1 max-w-xs" />
-          <div className="flex gap-1">
-            <div className="w-2 h-6 bg-secondary rounded-sm" />
-            <div className="w-2 h-6 bg-primary rounded-sm" />
-            <div className="w-2 h-6 bg-secondary rounded-sm" />
-          </div>
-          <div className="h-px bg-border flex-1 max-w-xs" />
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-5 gap-8">
           {/* Contact Form */}
-          <Card className="border border-border/50 shadow-lg">
-            <CardContent className="p-6">
+          <Card className="lg:col-span-3 border-0 shadow-lg rounded-2xl">
+            <CardContent className="p-6 md:p-8">
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <Label htmlFor="name" className="text-sm font-medium text-foreground">
-                    Your name *
-                  </Label>
-                  <Input
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    required
-                    maxLength={100}
-                    className="mt-1"
-                  />
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <Label htmlFor="name" className="text-xs font-medium text-foreground mb-1.5 block">
+                      Full Name *
+                    </Label>
+                    <Input
+                      id="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                      maxLength={100}
+                      placeholder="John Doe"
+                      className="rounded-xl h-11"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="email" className="text-xs font-medium text-foreground mb-1.5 block">
+                      Email *
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
+                      maxLength={255}
+                      placeholder="john@example.com"
+                      className="rounded-xl h-11"
+                    />
+                  </div>
                 </div>
-                
-                <div>
-                  <Label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Your email *
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    required
-                    maxLength={255}
-                    className="mt-1"
-                  />
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <Label htmlFor="phone" className="text-xs font-medium text-foreground mb-1.5 block">
+                      Phone Number
+                    </Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      maxLength={20}
+                      placeholder="+254 7XX XXX XXX"
+                      className="rounded-xl h-11"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="subject" className="text-xs font-medium text-foreground mb-1.5 block">
+                      Subject
+                    </Label>
+                    <Input
+                      id="subject"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      maxLength={200}
+                      placeholder="e.g. Box Profile Quote"
+                      className="rounded-xl h-11"
+                    />
+                  </div>
                 </div>
-
                 <div>
-                  <Label htmlFor="phone" className="text-sm font-medium text-foreground">
-                    Phone number
-                  </Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    maxLength={20}
-                    className="mt-1"
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="subject" className="text-sm font-medium text-foreground">
-                    Subject
-                  </Label>
-                  <Input
-                    id="subject"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                    maxLength={200}
-                    className="mt-1"
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="message" className="text-sm font-medium text-foreground">
-                    Your message (optional)
+                  <Label htmlFor="message" className="text-xs font-medium text-foreground mb-1.5 block">
+                    Message (optional)
                   </Label>
                   <Textarea
                     id="message"
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={4}
                     maxLength={1000}
-                    className="mt-1"
+                    placeholder="Tell us about your project requirements..."
+                    className="rounded-xl"
                   />
                 </div>
-                
-                <Button 
+                <Button
                   type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full h-12 text-sm font-semibold"
                 >
-                  Send Message
+                  <Send className="h-4 w-4 mr-2" />
+                  Send Message via WhatsApp
                 </Button>
               </form>
             </CardContent>
           </Card>
 
-          {/* Locations */}
-          <div>
-            <h3 className="text-xl font-bold text-primary mb-6">VISIT OUR LOCATIONS</h3>
-            <p className="text-muted-foreground mb-8">
-              Get in touch with us, we are here to assist you from service dispensation to ordering of our products
-            </p>
-
-            <div className="space-y-6">
-              {locations.map((location, index) => (
-                <Card key={index} className="border border-border/50 hover:shadow-md transition-shadow">
-                  <CardContent className="p-5">
-                    <h4 className="font-bold text-secondary mb-3">{location.name}</h4>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <div className="flex items-start gap-2">
-                        <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{location.address}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                        <a 
-                          href={`tel:${location.phone.replace(/\s/g, '')}`}
-                          className="hover:text-primary transition-colors"
-                        >
-                          {location.phone}
-                        </a>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Contact Info */}
-            <div className="mt-8 p-6 bg-muted/50 rounded-lg">
-              <div className="flex items-center gap-3 mb-3">
-                 <Mail className="h-5 w-5 text-primary" />
-                 <a 
-                   href="mailto:diamondshr623@gmail.com"
-                   className="text-foreground hover:text-primary transition-colors"
-                 >
-                   diamondshr623@gmail.com
-                 </a>
+          {/* Sidebar Info */}
+          <div className="lg:col-span-2 space-y-5">
+            {/* Locations */}
+            {locations.map((location, index) => (
+              <div
+                key={index}
+                className="p-5 rounded-2xl bg-muted/50 border border-border/50 hover:shadow-md transition-shadow"
+              >
+                <h4 className="font-bold text-secondary text-sm mb-3">
+                  Royal Mabati — {location.name}
+                </h4>
+                <div className="space-y-2 text-xs text-muted-foreground">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="h-3.5 w-3.5 text-primary mt-0.5 flex-shrink-0" />
+                    <span>{location.address}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-3.5 w-3.5 text-primary flex-shrink-0" />
+                    <a
+                      href={`tel:${location.phone.replace(/\s/g, "")}`}
+                      className="hover:text-primary transition-colors"
+                    >
+                      {location.phone}
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Clock className="h-5 w-5 text-primary" />
-                <span className="text-muted-foreground">Mon - Sat: 8:00 AM - 6:00 PM</span>
+            ))}
+
+            {/* Contact Details */}
+            <div className="p-5 rounded-2xl bg-secondary text-secondary-foreground">
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <Mail className="h-4 w-4 text-accent flex-shrink-0" />
+                  <a
+                    href="mailto:diamondshr623@gmail.com"
+                    className="text-sm hover:text-accent transition-colors"
+                  >
+                    diamondshr623@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Clock className="h-4 w-4 text-accent flex-shrink-0" />
+                  <span className="text-sm text-secondary-foreground/80">
+                    Mon – Sat: 8:00 AM – 6:00 PM
+                  </span>
+                </div>
               </div>
             </div>
           </div>
