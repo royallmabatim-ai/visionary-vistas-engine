@@ -122,13 +122,13 @@ export const Header = () => {
                   {item.label}
                 </button>
               ))}
-              <a 
-                href="tel:+254755199726"
-                className="flex items-center gap-2 py-3 px-4 text-primary font-semibold"
-              >
-                <Phone className="h-4 w-4" />
-                <span>+254 755 199 726</span>
-              </a>
+               <a 
+                 href="tel:+254752543019"
+                 className="flex items-center gap-2 py-3 px-4 text-primary font-semibold"
+               >
+                 <Phone className="h-4 w-4" />
+                 <span>+254 752 543 019</span>
+               </a>
             </div>
           </nav>
         )}

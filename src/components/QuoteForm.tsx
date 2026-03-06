@@ -200,13 +200,13 @@ export const QuoteForm = () => {
             {/* Contact Info */}
             <div className="mt-8 p-6 bg-muted/50 rounded-lg">
               <div className="flex items-center gap-3 mb-3">
-                <Mail className="h-5 w-5 text-primary" />
-                <a 
-                  href="mailto:salesroyalmabatii@gmail.com"
-                  className="text-foreground hover:text-primary transition-colors"
-                >
-                  salesroyalmabatii@gmail.com
-                </a>
+                 <Mail className="h-5 w-5 text-primary" />
+                 <a 
+                   href="mailto:diamondshr623@gmail.com"
+                   className="text-foreground hover:text-primary transition-colors"
+                 >
+                   diamondshr623@gmail.com
+                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-primary" />
