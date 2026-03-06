@@ -85,13 +85,13 @@ export const Header = () => {
 
             {/* Phone & Menu */}
             <div className="flex items-center gap-4">
-              <a 
-                href="tel:+254755199726"
-                className="hidden md:flex items-center gap-2 text-primary font-semibold hover:opacity-80 transition-opacity"
-              >
-                <Phone className="h-4 w-4" />
-                <span>+254 755 199 726</span>
-              </a>
+               <a 
+                 href="tel:+254752543019"
+                 className="hidden md:flex items-center gap-2 text-primary font-semibold hover:opacity-80 transition-opacity"
+               >
+                 <Phone className="h-4 w-4" />
+                 <span>+254 752 543 019</span>
+               </a>
               
               {/* Mobile Menu Button */}
               <button
