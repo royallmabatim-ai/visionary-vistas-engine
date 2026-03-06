@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button } from "./ui/button";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,39 +22,38 @@ export const Header = () => {
   };
 
   const navItems = [
-    { label: "HOME", id: "hero", active: true },
-    { label: "ROOFING SHEETS", id: "products" },
-    { label: "SERVICES", id: "services" },
-    { label: "TESTIMONIALS", id: "testimonials" },
-    { label: "CONTACT US", id: "contact" },
+    { label: "Home", id: "hero" },
+    { label: "Products", id: "products" },
+    { label: "Services", id: "services" },
+    { label: "Testimonials", id: "testimonials" },
+    { label: "Contact", id: "contact" },
   ];
 
   return (
     <>
-      {/* Top Accent Bar - Like the reference site */}
       <div className="accent-bar" />
-      
-      {/* Main Header */}
       <header
-        className={`sticky top-0 z-50 bg-background transition-all duration-300 ${
-          isScrolled ? "shadow-lg" : "shadow-sm"
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-background/95 backdrop-blur-md shadow-lg"
+            : "bg-background shadow-sm"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="flex justify-between items-center h-16 md:h-18">
             {/* Logo */}
-            <button 
+            <button
               onClick={() => scrollToSection("hero")}
               className="flex items-center gap-3 hover:opacity-90 transition-opacity"
             >
-              <img 
-                src="/logos/royal-mabati-logo.png" 
-                alt="Royal Mabati Factory Ltd" 
-                className="h-12 w-auto"
+              <img
+                src="/logos/royal-mabati-logo.png"
+                alt="Royal Mabati Factory Ltd"
+                className="h-10 md:h-12 w-auto"
                 onError={(e) => {
-                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.style.display = "none";
                   const text = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (text) text.style.display = 'block';
+                  if (text) text.style.display = "block";
                 }}
               />
               <span className="hidden text-xl font-bold text-primary">
@@ -66,72 +64,63 @@ export const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => (
-                <button 
+                <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)} 
-                  className={`px-4 py-2 text-sm font-medium transition-colors relative ${
-                    item.active 
-                      ? 'text-primary' 
-                      : 'text-foreground hover:text-primary'
-                  }`}
+                  onClick={() => scrollToSection(item.id)}
+                  className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative group"
                 >
                   {item.label}
-                  {item.active && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
-                  )}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-3/4 rounded-full" />
                 </button>
               ))}
             </nav>
 
             {/* Phone & Menu */}
-            <div className="flex items-center gap-4">
-               <a 
-                 href="tel:+254752543019"
-                 className="hidden md:flex items-center gap-2 text-primary font-semibold hover:opacity-80 transition-opacity"
-               >
-                 <Phone className="h-4 w-4" />
-                 <span>+254 752 543 019</span>
-               </a>
-              
-              {/* Mobile Menu Button */}
+            <div className="flex items-center gap-3">
+              <a
+                href="tel:+254752543019"
+                className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
+              >
+                <Phone className="h-3.5 w-3.5" />
+                <span>+254 752 543 019</span>
+              </a>
+
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden text-primary p-2"
+                className="lg:hidden text-foreground p-2 hover:bg-muted rounded-lg transition-colors"
                 aria-label="Toggle menu"
               >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
             </div>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="lg:hidden border-t border-border bg-background">
-            <div className="max-w-7xl mx-auto px-4 py-2">
-              {navItems.map((item) => (
-                <button 
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)} 
-                  className={`block w-full text-left py-3 px-4 text-sm font-medium border-b border-border/50 last:border-0 ${
-                    item.active 
-                      ? 'text-primary bg-primary/5' 
-                      : 'text-foreground hover:text-primary hover:bg-muted/50'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-               <a 
-                 href="tel:+254752543019"
-                 className="flex items-center gap-2 py-3 px-4 text-primary font-semibold"
-               >
-                 <Phone className="h-4 w-4" />
-                 <span>+254 752 543 019</span>
-               </a>
-            </div>
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${
+            isMenuOpen ? "max-h-96" : "max-h-0"
+          }`}
+        >
+          <nav className="border-t border-border bg-background px-4 py-2">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="block w-full text-left py-3 px-3 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-muted/50 rounded-lg transition-colors"
+              >
+                {item.label}
+              </button>
+            ))}
+            <a
+              href="tel:+254752543019"
+              className="flex items-center gap-2 py-3 px-3 text-primary font-semibold text-sm"
+            >
+              <Phone className="h-4 w-4" />
+              <span>+254 752 543 019</span>
+            </a>
           </nav>
-        )}
+        </div>
       </header>
     </>
   );
