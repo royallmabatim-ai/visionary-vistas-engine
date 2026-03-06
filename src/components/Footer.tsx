@@ -53,20 +53,20 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
             <div className="space-y-3">
-              <a 
-                href="tel:+254755199726"
-                className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors text-sm"
-              >
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>+254 755 199 726</span>
-              </a>
-              <a 
-                href="mailto:salesroyalmabatii@gmail.com"
-                className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors text-sm"
-              >
-                <Mail className="h-4 w-4 flex-shrink-0" />
-                <span>salesroyalmabatii@gmail.com</span>
-              </a>
+               <a 
+                 href="tel:+254752543019"
+                 className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors text-sm"
+               >
+                 <Phone className="h-4 w-4 flex-shrink-0" />
+                 <span>+254 752 543 019</span>
+               </a>
+               <a 
+                 href="mailto:diamondshr623@gmail.com"
+                 className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors text-sm"
+               >
+                 <Mail className="h-4 w-4 flex-shrink-0" />
+                 <span>diamondshr623@gmail.com</span>
+               </a>
               <div className="flex items-start gap-2 text-background/70 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <span>Nationwide Delivery in Kenya</span>

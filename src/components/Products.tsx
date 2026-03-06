@@ -158,7 +158,7 @@ export const Products = () => {
                     asChild
                   >
                     <a 
-                      href={`https://wa.me/254755199726?text=I'm interested in ${product.title}.`}
+                      href={`https://wa.me/254752543019?text=I'm interested in ${product.title}.`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

@@ -28,7 +28,7 @@ export const QuoteForm = () => {
     const encodedMessage = encodeURIComponent(formData.message.trim());
     
     const whatsappMessage = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0ASubject: ${encodedSubject}%0AMessage: ${encodedMessage}`;
-    window.open(`https://wa.me/254755199726?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/254752543019?text=${whatsappMessage}`, "_blank");
     
     toast({
       title: "Redirecting to WhatsApp",
@@ -200,13 +200,13 @@ export const QuoteForm = () => {
             {/* Contact Info */}
             <div className="mt-8 p-6 bg-muted/50 rounded-lg">
               <div className="flex items-center gap-3 mb-3">
-                <Mail className="h-5 w-5 text-primary" />
-                <a 
-                  href="mailto:salesroyalmabatii@gmail.com"
-                  className="text-foreground hover:text-primary transition-colors"
-                >
-                  salesroyalmabatii@gmail.com
-                </a>
+                 <Mail className="h-5 w-5 text-primary" />
+                 <a 
+                   href="mailto:diamondshr623@gmail.com"
+                   className="text-foreground hover:text-primary transition-colors"
+                 >
+                   diamondshr623@gmail.com
+                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-primary" />
