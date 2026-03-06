@@ -28,7 +28,7 @@ export const QuoteForm = () => {
     const encodedMessage = encodeURIComponent(formData.message.trim());
     
     const whatsappMessage = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0ASubject: ${encodedSubject}%0AMessage: ${encodedMessage}`;
-    window.open(`https://wa.me/254755199726?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/254752543019?text=${whatsappMessage}`, "_blank");
     
     toast({
       title: "Redirecting to WhatsApp",
