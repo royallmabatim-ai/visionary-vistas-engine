@@ -26,7 +26,7 @@ export const QuoteForm = () => {
     const encodedMessage = encodeURIComponent(formData.message.trim());
 
     const whatsappMessage = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0ASubject: ${encodedSubject}%0AMessage: ${encodedMessage}`;
-    window.open(`https://wa.me/254752543019?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/254100725081?text=${whatsappMessage}`, "_blank");
 
     toast({
       title: "Redirecting to WhatsApp",
@@ -57,6 +57,7 @@ export const QuoteForm = () => {
           </p>
         </div>
 
+<<<<<<< HEAD
         <div className="grid lg:grid-cols-5 gap-8">
           {/* Contact Form */}
           <Card className="lg:col-span-3 border-0 shadow-lg rounded-2xl">
@@ -65,6 +66,108 @@ export const QuoteForm = () => {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <Label htmlFor="name" className="text-xs font-medium text-foreground mb-1.5 block">
+=======
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <Card className="border-primary/20">
+              <CardHeader>
+                <CardTitle>Get in Touch</CardTitle>
+                <CardDescription>
+                  Prefer to reach out directly? Contact us through any of these channels.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <a 
+                  href="tel:+254100725081"
+                  className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-muted/50 transition-all group"
+                >
+                  <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium">Call Us</p>
+                    <p className="text-sm text-muted-foreground">0100 725 081</p>
+                  </div>
+                </a>
+
+                <a 
+                  href="https://wa.me/254100725081?text=Hello Royal Mabati, I need a quote."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-[#25D366]/50 hover:bg-[#25D366]/5 transition-all group"
+                >
+                  <div className="p-2 bg-[#25D366]/10 rounded-lg group-hover:bg-[#25D366]/20 transition-colors">
+                    <MessageCircle className="h-5 w-5 text-[#25D366]" />
+                  </div>
+                  <div>
+                    <p className="font-medium">WhatsApp</p>
+                    <p className="text-sm text-muted-foreground">Chat with us instantly</p>
+                  </div>
+                </a>
+
+                <a 
+                  href="mailto:salesroyalmabatii@gmail.com"
+                  className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-muted/50 transition-all group"
+                >
+                  <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium">Email Us</p>
+                    <p className="text-sm text-muted-foreground">salesroyalmabatii@gmail.com</p>
+                  </div>
+                </a>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-primary border-0 shadow-xl overflow-hidden relative">
+              <div className="absolute bottom-0 right-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 translate-x-24" />
+              <CardContent className="pt-8 pb-6 text-primary-foreground relative">
+                  <h3 className="font-bold text-xl mb-5 flex items-center gap-2">
+                  <Award className="h-6 w-6 text-gold" />
+                  Why Choose Royal Mabati?
+                </h3>
+                <ul className="space-y-3 text-sm text-primary-foreground/95">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>25-year warranty on all products</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>Free nationwide delivery</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>ISO certified quality standards</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>Expert consultation and support</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gold font-bold mt-0.5">✓</span>
+                    <span>Competitive pricing with bulk discounts</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Quote Form */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Request Your Quote</CardTitle>
+              <CardDescription>
+                Provide your details and we'll prepare a customized quote for your project.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium">
+>>>>>>> 2fce1df (changed phone number)
                       Full Name *
                     </Label>
                     <Input

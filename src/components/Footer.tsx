@@ -60,16 +60,14 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-5 text-sm uppercase tracking-wider text-secondary-foreground/60">
-              Contact Us
-            </h4>
-            <div className="space-y-4">
-              <a
-                href="tel:+254752543019"
-                className="flex items-center gap-3 text-secondary-foreground/70 hover:text-accent transition-colors text-sm"
+            <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
+            <div className="space-y-3">
+              <a 
+                href="tel:+254100725081"
+                className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"
               >
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>+254 752 543 019</span>
+                <Phone className="h-4 w-4" />
+                <span>0100 725 081</span>
               </a>
               <a
                 href="mailto:diamondshr623@gmail.com"

@@ -31,7 +31,31 @@ export const Header = () => {
 
   return (
     <>
-      <div className="accent-bar" />
+      {/* Top Bar */}
+      <div className="bg-gradient-primary text-primary-foreground py-3 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-sm">
+          <div className="flex flex-wrap items-center gap-4 justify-center">
+            <a href="tel:+254100725081" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Phone className="h-4 w-4" />
+              <span>0100 725 081</span>
+            </a>
+            <a href="mailto:salesroyalmabatii@gmail.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Mail className="h-4 w-4" />
+              <span>salesroyalmabatii@gmail.com</span>
+            </a>
+          </div>
+          <a 
+            href="https://www.facebook.com/share/1AMKUYhVgU/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            Follow us on Facebook
+          </a>
+        </div>
+      </div>
+
+      {/* Main Header */}
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled
@@ -78,11 +102,11 @@ export const Header = () => {
             {/* Phone & Menu */}
             <div className="flex items-center gap-3">
               <a
-                href="tel:+254752543019"
+                href="tel:+254100725081"
                 className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
               >
                 <Phone className="h-3.5 w-3.5" />
-                <span>+254 752 543 019</span>
+                <span>0100 725 081</span>
               </a>
 
               <button
@@ -113,11 +137,11 @@ export const Header = () => {
               </button>
             ))}
             <a
-              href="tel:+254752543019"
+              href="tel:+254100725081"
               className="flex items-center gap-2 py-3 px-3 text-primary font-semibold text-sm"
             >
               <Phone className="h-4 w-4" />
-              <span>+254 752 543 019</span>
+              <span>0100 725 081</span>
             </a>
           </nav>
         </div>
