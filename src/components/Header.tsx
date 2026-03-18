@@ -45,7 +45,7 @@ export const Header = () => {
             </a>
           </div>
           <a 
-            href="https://www.facebook.com/share/1AMKUYhVgU/" 
+            href="https://www.facebook.com/share/1AMKUYhVgU /" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
