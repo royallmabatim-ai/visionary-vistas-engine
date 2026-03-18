@@ -122,7 +122,7 @@
   }
 
   .section-subtitle {
-    @apply inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary px-4 py-1.5 rounded-full bg-primary/8 mb-4;
+    @apply inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary px-4 py-1.5 rounded-full bg-primary/10 mb-4;
   }
 
   .glass-card {
