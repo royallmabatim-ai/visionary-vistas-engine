@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Mail, Menu, X } from "lucide-react";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
