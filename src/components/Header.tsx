@@ -35,7 +35,11 @@ export const Header = () => {
       <div className="bg-gradient-primary text-primary-foreground py-3 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-sm">
           <div className="flex flex-wrap items-center gap-4 justify-center">
-            <a href="tel:+254100725081" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a <a href="tel:+254100725081" 
+   onclick="gtag('event', 'conversion', {'send_to': 'AW-17853724435/WdZsCJfiko4cEJPuqMFC'});"
+   class="btn-secondary">
+   Call Now: 0100 725 081
+</a> className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Phone className="h-4 w-4" />
               <span>0100 725 081</span>
             </a>
@@ -102,7 +106,11 @@ export const Header = () => {
             {/* Phone & Menu */}
             <div className="flex items-center gap-3">
               <a
-                href="tel:+254100725081"
+                <a href="tel:0100725081" 
+   onclick="gtag('event', 'conversion', {'send_to': 'AW-17853724435/WdZsCJfiko4cEJPuqMFC'});"
+   class="btn-secondary">
+   Call Now: 0100 725 081
+</a>
                 className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
               >
                 <Phone className="h-3.5 w-3.5" />
