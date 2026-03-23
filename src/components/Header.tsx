@@ -35,7 +35,7 @@ export const Header = () => {
       <div className="bg-gradient-primary text-primary-foreground py-3 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-sm">
           <div className="flex flex-wrap items-center gap-4 justify-center">
-            <a <a href="tel:+254100725081" 
+            <a href="tel:0100725081"
    onclick="gtag('event', 'conversion', {'send_to': 'AW-17853724435/WdZsCJfiko4cEJPuqMFC'});"
    class="btn-secondary">
    Call Now: 0100 725 081
