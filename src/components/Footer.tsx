@@ -70,11 +70,11 @@ export const Footer = () => {
                 <span>0100 725 081</span>
               </a>
               <a
-                href="mailto:diamondshr623@gmail.com"
+                href="mailto:salesroyalmabatii@gmail.com"
                 className="flex items-center gap-3 text-secondary-foreground/70 hover:text-accent transition-colors text-sm"
               >
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <span>diamondshr623@gmail.com</span>
+                <span>salesroyalmabatii@gmail.com</span>
               </a>
               <div className="flex items-start gap-3 text-secondary-foreground/70 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />

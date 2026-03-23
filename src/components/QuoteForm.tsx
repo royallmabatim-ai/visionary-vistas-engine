@@ -37,9 +37,9 @@ export const QuoteForm = () => {
   };
 
   const locations = [
-    { name: "NAIROBI", address: "Industrial Area, Nairobi", phone: "+254 752 543 019" },
-    { name: "MOMBASA", address: "Changamwe, Mombasa", phone: "+254 752 543 019" },
-    { name: "KISUMU", address: "Kisumu Town, Nyanza", phone: "+254 752 543 019" },
+    { name: "NAIROBI", address: "Industrial Area, Nairobi", phone: "+254 100 725 081" },
+    { name: "MOMBASA", address: "Changamwe, Mombasa", phone: "+254 100 725 081" },
+    { name: "KISUMU", address: "Kisumu Town, Nyanza", phone: "+254 100 725 081" },
   ];
 
   return (
@@ -182,10 +182,10 @@ export const QuoteForm = () => {
                 <div className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-accent flex-shrink-0" />
                   <a
-                    href="mailto:diamondshr623@gmail.com"
+                    href="mailto:salesroyalmabatii@gmail.com"
                     className="text-sm hover:text-accent transition-colors"
                   >
-                    diamondshr623@gmail.com
+                    salesroyalmabatii@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
