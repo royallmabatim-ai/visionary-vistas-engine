@@ -9,6 +9,7 @@ const categories = [
   {
     title: "Residential Roofing",
     image: tileProfileImage,
+    alt: "Residential roofing solutions Kenya - premium tile profile and stone-coated mabati for homes",
     description:
       "Transform your home with premium tile profile, stone-coated, and box profile sheets in a variety of colors and finishes designed for lasting beauty.",
     link: "products",
@@ -16,6 +17,7 @@ const categories = [
   {
     title: "Commercial Roofing",
     image: boxProfileImage,
+    alt: "Commercial roofing Kenya - durable longspan and IBR profile sheets for warehouses and factories",
     description:
       "Durable longspan and IBR profiles engineered for warehouses, factories, and office buildings. Built to perform under Kenya's demanding conditions.",
     link: "products",
@@ -23,6 +25,7 @@ const categories = [
   {
     title: "Roofing Accessories",
     image: corrugatedImage,
+    alt: "Roofing accessories Kenya - ridge caps, gutters, flashings, fasteners and sealants",
     description:
       "Complete your project with our full range of ridge caps, gutters, flashings, fasteners, sealants, and finishing products — all in one place.",
     link: "products",
@@ -62,8 +65,9 @@ export const IntroSection = () => {
               <div className="relative h-52 overflow-hidden">
                 <img
                   src={category.image}
-                  alt={category.title}
+                  alt={category.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent" />
                 <h3 className="absolute bottom-4 left-5 right-5 text-xl font-bold text-background">

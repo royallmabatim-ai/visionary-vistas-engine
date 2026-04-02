@@ -12,6 +12,7 @@ const slides = [
     title: "Premium Roofing Sheets for Every Project",
     subtitle:
       "From residential homes to commercial buildings — durable, beautiful roofing solutions backed by a 25-year warranty.",
+    alt: "Premium roofing sheets Kenya - Royal Mabati Factory residential and commercial roofing solutions",
   },
   {
     image: boxProfileImage,
@@ -19,6 +20,7 @@ const slides = [
     title: "Built to Withstand Kenya's Toughest Weather",
     subtitle:
       "Galvanized, color-coated, and aluzinc options. Wide range of gauges and finishes for any application.",
+    alt: "Box profile and corrugated iron roofing sheets Kenya - galvanized and color-coated mabati",
   },
   {
     image: tileProfileImage,
@@ -26,6 +28,7 @@ const slides = [
     title: "Elegant Roofing That Lasts a Lifetime",
     subtitle:
       "Superior aesthetics with unmatched durability. Transform your home with our premium tile and stone-coated sheets.",
+    alt: "Tile profile and stone-coated steel roofing Kenya - elegant premium mabati sheets",
   },
 ];
 
@@ -69,8 +72,9 @@ export const Hero = () => {
         >
           <img
             src={slide.image}
-            alt={slide.title}
+            alt={slide.alt}
             className="w-full h-full object-cover"
+            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/70 to-secondary/30" />
 

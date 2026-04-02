@@ -7,10 +7,12 @@ import { Services } from "@/components/Services";
 import { Testimonials } from "@/components/Testimonials";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Footer } from "@/components/Footer";
+import { SEOHead } from "@/components/SEOHead";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead />
       <Header />
       <main>
         <Hero />
@@ -27,3 +29,4 @@ const Index = () => {
 };
 
 export default Index;
+

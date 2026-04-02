@@ -18,6 +18,7 @@ const products = [
     salePrice: "470",
     unit: "/meter",
     image: boxProfileImage,
+    alt: "Box profile roofing sheet Kenya - premium galvanized mabati by Royal Mabati Factory",
     onSale: true,
   },
   {
@@ -27,6 +28,7 @@ const products = [
     salePrice: "430",
     unit: "/meter",
     image: corrugatedImage,
+    alt: "Corrugated iron roofing sheet Kenya - affordable mabati sheets with free delivery",
     onSale: true,
   },
   {
@@ -36,6 +38,7 @@ const products = [
     salePrice: "520",
     unit: "/meter",
     image: tileProfileImage,
+    alt: "Tile profile roofing sheet Kenya - elegant residential mabati by Royal Mabati",
     onSale: true,
   },
   {
@@ -45,6 +48,7 @@ const products = [
     salePrice: "490",
     unit: "/meter",
     image: ibrProfileImage,
+    alt: "IBR profile roofing sheet Kenya - industrial strength inverted box rib mabati",
     onSale: true,
   },
   {
@@ -54,6 +58,7 @@ const products = [
     salePrice: "850",
     unit: "/meter",
     image: stoneCoatedImage,
+    alt: "Stone-coated steel roofing Kenya - luxury roofing with 50-year warranty",
     onSale: true,
   },
   {
@@ -63,6 +68,7 @@ const products = [
     salePrice: "650",
     unit: "/meter",
     image: kliplokImage,
+    alt: "Klip-Lok standing seam roofing Kenya - modern concealed fix roofing system",
     onSale: true,
   },
   {
@@ -72,6 +78,7 @@ const products = [
     salePrice: "540",
     unit: "/meter",
     image: longspanImage,
+    alt: "Longspan roofing profile Kenya - wide coverage warehouse roofing sheets",
     onSale: true,
   },
 ];
@@ -113,8 +120,9 @@ export const Products = () => {
                 )}
                 <img
                   src={product.image}
-                  alt={product.title}
+                  alt={product.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
               </div>
 
