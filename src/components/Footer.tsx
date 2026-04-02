@@ -63,11 +63,11 @@ export const Footer = () => {
             <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
             <div className="space-y-3">
               <a 
-                href="tel:+254100725081"
+                href="tel:+254762235510"
                 className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span>0100 725 081</span>
+                <span>0762235510</span>
               </a>
               <a
                 href="mailto:salesroyalmabatii@gmail.com"

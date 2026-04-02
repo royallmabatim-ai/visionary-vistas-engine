@@ -37,9 +37,9 @@ export const QuoteForm = () => {
   };
 
   const locations = [
-    { name: "NAIROBI", address: "Industrial Area, Nairobi", phone: "+254 100 725 081" },
-    { name: "MOMBASA", address: "Changamwe, Mombasa", phone: "+254 100 725 081" },
-    { name: "KISUMU", address: "Kisumu Town, Nyanza", phone: "+254 100 725 081" },
+    { name: "NAIROBI", address: "Industrial Area, Nairobi", phone: "+254 762 235 510" },
+    { name: "MOMBASA", address: "Changamwe, Mombasa", phone: "+254 762 235 510" },
+    { name: "KISUMU", address: "Kisumu Town, Nyanza", phone: "+254 762 235 510" },
   ];
 
   return (
