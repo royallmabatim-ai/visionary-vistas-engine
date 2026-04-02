@@ -31,30 +31,36 @@ export const Header = () => {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-gradient-primary text-primary-foreground py-3 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-sm">
-          <div className="flex flex-wrap items-center gap-4 justify-center">
+      {/* Top Bar - Contact Info */}
+      <div className="bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-md">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <a 
+                href="tel:0762235510"
+                className="flex items-center gap-2 hover:opacity-90 transition-opacity font-semibold text-base"
+              >
+                <Phone className="h-5 w-5" />
+                <span>Call: 0762235510</span>
+              </a>
+              <div className="hidden sm:block w-px h-6 bg-primary-foreground/30"></div>
+              <a 
+                href="mailto:salesroyalmabatii@gmail.com" 
+                className="flex items-center gap-2 hover:opacity-90 transition-opacity font-semibold text-base"
+              >
+                <Mail className="h-5 w-5" />
+                <span>Email: salesroyalmabatii@gmail.com</span>
+              </a>
+            </div>
             <a 
-              href="tel:0762235510"
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              href="https://www.facebook.com/share/1AMKUYhVgU /" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-90 transition-opacity font-medium text-sm"
             >
-              <Phone className="h-4 w-4" />
-              <span>0762235510</span>
-            </a>
-            <a href="mailto:salesroyalmabatii@gmail.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <Mail className="h-4 w-4" />
-              <span>salesroyalmabatii@gmail.com</span>
+              Follow us on Facebook
             </a>
           </div>
-          <a 
-            href="https://www.facebook.com/share/1AMKUYhVgU /" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="hover:opacity-80 transition-opacity"
-          >
-            Follow us on Facebook
-          </a>
         </div>
       </div>
 
