@@ -35,13 +35,12 @@ export const Header = () => {
       <div className="bg-gradient-primary text-primary-foreground py-3 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-sm">
           <div className="flex flex-wrap items-center gap-4 justify-center">
-            <a href="tel:0100725081"
-   onclick="gtag('event', 'conversion', {'send_to': 'AW-17853724435/WdZsCJfiko4cEJPuqMFC'});"
-   class="btn-secondary">
-   Call Now: 0100 725 081
-</a> className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a 
+              href="tel:0762235510"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            >
               <Phone className="h-4 w-4" />
-              <span>0100 725 081</span>
+              <span>0762235510</span>
             </a>
             <a href="mailto:salesroyalmabatii@gmail.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="h-4 w-4" />
@@ -106,15 +105,11 @@ export const Header = () => {
             {/* Phone & Menu */}
             <div className="flex items-center gap-3">
               <a
-                <a href="tel:0100725081" 
-   onclick="gtag('event', 'conversion', {'send_to': 'AW-17853724435/WdZsCJfiko4cEJPuqMFC'});"
-   class="btn-secondary">
-   Call Now: 0100 725 081
-</a>
+                href="tel:0762235510"
                 className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
               >
                 <Phone className="h-3.5 w-3.5" />
-                <span>0100 725 081</span>
+                <span>0762235510</span>
               </a>
 
               <button
@@ -145,11 +140,11 @@ export const Header = () => {
               </button>
             ))}
             <a
-              href="tel:+254100725081"
+              href="tel:+254762235510"
               className="flex items-center gap-2 py-3 px-3 text-primary font-semibold text-sm"
             >
               <Phone className="h-4 w-4" />
-              <span>0100 725 081</span>
+              <span>0762235510</span>
             </a>
           </nav>
         </div>
