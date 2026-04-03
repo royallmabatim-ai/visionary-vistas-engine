@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Phone, Mail, Menu, X } from "lucide-react";
+import { trackPhoneClick, trackEmailClick } from "@/lib/tracking";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,6 +40,7 @@ export const Header = () => {
               <a 
                 href="tel:0762235510"
                 className="flex items-center gap-2 hover:opacity-90 transition-opacity font-semibold text-base"
+                onClick={() => trackPhoneClick("0762235510")}
               >
                 <Phone className="h-5 w-5" />
                 <span>Call: 0762235510</span>
@@ -47,6 +49,7 @@ export const Header = () => {
               <a 
                 href="mailto:salesroyalmabatii@gmail.com" 
                 className="flex items-center gap-2 hover:opacity-90 transition-opacity font-semibold text-base"
+                onClick={() => trackEmailClick("salesroyalmabatii@gmail.com")}
               >
                 <Mail className="h-5 w-5" />
                 <span>Email: salesroyalmabatii@gmail.com</span>
@@ -113,6 +116,7 @@ export const Header = () => {
               <a
                 href="tel:0762235510"
                 className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
+                onClick={() => trackPhoneClick("0762235510")}
               >
                 <Phone className="h-3.5 w-3.5" />
                 <span>0762235510</span>

@@ -6,6 +6,7 @@ import { Card, CardContent } from "./ui/card";
 import { Label } from "./ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { trackQuoteSubmission, trackPhoneClick, trackEmailClick } from "@/lib/tracking";
 
 export const QuoteForm = () => {
   const { toast } = useToast();
@@ -27,6 +28,9 @@ export const QuoteForm = () => {
 
     const whatsappMessage = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0ASubject: ${encodedSubject}%0AMessage: ${encodedMessage}`;
     window.open(`https://wa.me/254762235510?text=${whatsappMessage}`, "_blank");
+
+    // Track as conversion for Google Ads
+    trackQuoteSubmission(formData.subject || "General Inquiry");
 
     toast({
       title: "Redirecting to WhatsApp",
@@ -168,6 +172,7 @@ export const QuoteForm = () => {
                     <a
                       href={`tel:${location.phone.replace(/\s/g, "")}`}
                       className="hover:text-primary transition-colors"
+                      onClick={() => trackPhoneClick(location.phone)}
                     >
                       {location.phone}
                     </a>
@@ -184,6 +189,7 @@ export const QuoteForm = () => {
                   <a
                     href="mailto:salesroyalmabatii@gmail.com"
                     className="text-sm hover:text-accent transition-colors"
+                    onClick={() => trackEmailClick("salesroyalmabatii@gmail.com")}
                   >
                     salesroyalmabatii@gmail.com
                   </a>

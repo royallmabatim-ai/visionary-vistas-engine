@@ -1,0 +1,25 @@
+# Royal Mabati Factory Ltd - www.royalmabati.co.ke
+# Sitemap location for search engine crawlers
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.royalmabati.co.ke/sitemap.xml
+
+# Host
+Host: https://www.royalmabati.co.ke

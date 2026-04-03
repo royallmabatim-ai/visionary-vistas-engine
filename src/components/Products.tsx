@@ -2,6 +2,7 @@ import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { MessageCircle } from "lucide-react";
+import { trackWhatsAppClick, trackProductClick } from "@/lib/tracking";
 import boxProfileImage from "@/assets/box-profile-roofing.jpg";
 import corrugatedImage from "@/assets/corrugated-roofing.jpg";
 import tileProfileImage from "@/assets/tile-profile-roofing.jpg";
@@ -161,6 +162,7 @@ export const Products = () => {
                       href={`https://wa.me/254762235510?text=I'm interested in ${product.title}.`}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackWhatsAppClick(`product_${product.title}`)}
                     >
                       <MessageCircle className="h-3.5 w-3.5 mr-1" />
                       WhatsApp
@@ -169,7 +171,7 @@ export const Products = () => {
                   <Button
                     size="sm"
                     variant="outline"
-                    onClick={scrollToQuote}
+                    onClick={() => { trackProductClick(product.title, "get_quote"); scrollToQuote(); }}
                     className="flex-1 text-xs rounded-full h-9 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground"
                   >
                     Get Quote

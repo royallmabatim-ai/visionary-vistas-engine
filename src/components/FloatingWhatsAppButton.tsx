@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 export const FloatingWhatsAppButton = () => {
   const phoneNumber = "254762235510";
@@ -12,6 +13,7 @@ export const FloatingWhatsAppButton = () => {
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-40 group"
       aria-label="Chat on WhatsApp"
+      onClick={() => trackWhatsAppClick("floating_button")}
     >
       {/* Pulse ring */}
       <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25" />
@@ -25,3 +27,4 @@ export const FloatingWhatsAppButton = () => {
     </a>
   );
 };
+
