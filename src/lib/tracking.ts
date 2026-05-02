@@ -1,44 +1,32 @@
 /**
- * Google Ads & Analytics Conversion Tracking Utility
- * 
- * Tracks key user actions as conversions so Google Ads can optimize
- * to show ads to people who are most likely to contact Royal Mabati.
+ * Conversion Tracking Utility
+ *
+ * Pushes key user actions onto the GTM dataLayer so tags configured in
+ * Google Tag Manager (GTM-M9T3TJQZ) can forward them to GA4, Google Ads,
+ * or any other destination.
  */
 
-// Extend Window interface for gtag
 declare global {
   interface Window {
-    gtag?: (...args: unknown[]) => void;
+    dataLayer?: Record<string, unknown>[];
   }
 }
 
-// Google Ads Conversion ID
-const ADS_CONVERSION_ID = "AW-2270137631";
-
-/**
- * Send a conversion event to Google Ads & GA4
- */
-const sendConversion = (eventName: string, params?: Record<string, unknown>) => {
-  if (typeof window.gtag === "function") {
-    // GA4 event
-    window.gtag("event", eventName, params);
-  }
+const pushEvent = (event: string, params?: Record<string, unknown>) => {
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event, ...(params || {}) });
 };
 
 /**
  * Track when someone clicks a phone number to call
  */
 export const trackPhoneClick = (phoneNumber: string) => {
-  sendConversion("conversion", {
-    send_to: `${ADS_CONVERSION_ID}/phone_call`,
+  pushEvent("phone_click", {
     event_category: "contact",
     event_label: phoneNumber,
     value: 1.0,
     currency: "KES",
-  });
-  sendConversion("phone_click", {
-    event_category: "contact",
-    event_label: phoneNumber,
   });
 };
 
@@ -46,16 +34,11 @@ export const trackPhoneClick = (phoneNumber: string) => {
  * Track when someone clicks WhatsApp to chat
  */
 export const trackWhatsAppClick = (source: string) => {
-  sendConversion("conversion", {
-    send_to: `${ADS_CONVERSION_ID}/whatsapp_inquiry`,
+  pushEvent("whatsapp_click", {
     event_category: "contact",
     event_label: source,
     value: 1.0,
     currency: "KES",
-  });
-  sendConversion("whatsapp_click", {
-    event_category: "contact",
-    event_label: source,
   });
 };
 
@@ -63,14 +46,7 @@ export const trackWhatsAppClick = (source: string) => {
  * Track when someone submits the quote request form
  */
 export const trackQuoteSubmission = (subject: string) => {
-  sendConversion("conversion", {
-    send_to: `${ADS_CONVERSION_ID}/quote_request`,
-    event_category: "lead",
-    event_label: subject || "Quote Request",
-    value: 5.0,
-    currency: "KES",
-  });
-  sendConversion("generate_lead", {
+  pushEvent("generate_lead", {
     event_category: "lead",
     event_label: subject || "Quote Request",
     value: 5.0,
@@ -82,11 +58,11 @@ export const trackQuoteSubmission = (subject: string) => {
  * Track when someone clicks on a specific product
  */
 export const trackProductClick = (productName: string, action: string) => {
-  sendConversion("select_item", {
+  pushEvent("select_item", {
     event_category: "product",
     event_label: productName,
     item_name: productName,
-    action: action,
+    action,
   });
 };
 
@@ -94,7 +70,7 @@ export const trackProductClick = (productName: string, action: string) => {
  * Track email link clicks
  */
 export const trackEmailClick = (email: string) => {
-  sendConversion("email_click", {
+  pushEvent("email_click", {
     event_category: "contact",
     event_label: email,
   });
