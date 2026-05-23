@@ -63,13 +63,13 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
             <div className="space-y-3">
-              <a 
-                href="tel:+254762235510"
+              <a
+                href="tel:+254782673237"
                 className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"
-                onClick={() => trackPhoneClick("0762235510")}
+                onClick={() => trackPhoneClick("0782673237")}
               >
                 <Phone className="h-4 w-4" />
-                <span>0762235510</span>
+                <span>0782673237</span>
               </a>
               <a
                 href="mailto:salesroyalmabatii@gmail.com"

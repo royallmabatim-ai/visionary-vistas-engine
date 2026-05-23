@@ -159,7 +159,7 @@ export const Products = () => {
                     asChild
                   >
                     <a
-                      href={`https://wa.me/254762235510?text=I'm interested in ${product.title}.`}
+                      href={`https://wa.me/254796764445?text=I'm interested in ${product.title}.`}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackWhatsAppClick(`product_${product.title}`)}
