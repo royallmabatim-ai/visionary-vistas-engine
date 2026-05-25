@@ -27,7 +27,7 @@ export const QuoteForm = () => {
     const encodedMessage = encodeURIComponent(formData.message.trim());
 
     const whatsappMessage = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0ASubject: ${encodedSubject}%0AMessage: ${encodedMessage}`;
-    window.open(`https://wa.me/254762235510?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/254796764445?text=${whatsappMessage}`, "_blank");
 
     // Track as conversion for Google Ads
     trackQuoteSubmission(formData.subject || "General Inquiry");
