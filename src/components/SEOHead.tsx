@@ -20,7 +20,7 @@ export const SEOHead = () => {
       description:
         "Kenya's #1 supplier of premium roofing sheets — Box Profile, Corrugated, Tile Profile, IBR, Stone-Coated and more. Best mabati prices in Kenya with free nationwide delivery and 25-year warranty.",
       url: "https://www.royalmabati.co.ke",
-      telephone: "+254762235510",
+      telephone: "+254796764445",
       email: "salesroyalmabatii@gmail.com",
       image: "https://www.royalmabati.co.ke/logos/royal-mabati-logo.png",
       logo: "https://www.royalmabati.co.ke/logos/royal-mabati-logo.png",
@@ -267,7 +267,7 @@ export const SEOHead = () => {
           name: "Does Royal Mabati Factory deliver roofing sheets nationwide?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, Royal Mabati Factory Ltd offers free nationwide delivery across all 47 counties in Kenya for qualifying orders. We deliver to Nairobi, Mombasa, Kisumu, Nakuru, Eldoret, and all other major towns. Contact us at 0762235510 for delivery details.",
+            text: "Yes, Royal Mabati Factory Ltd offers free nationwide delivery across all 47 counties in Kenya for qualifying orders. We deliver to Nairobi, Mombasa, Kisumu, Nakuru, Eldoret, and all other major towns. Contact us at 0796764445 for delivery details.",
           },
         },
         {
@@ -283,7 +283,7 @@ export const SEOHead = () => {
           name: "Where is Royal Mabati Factory located?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Royal Mabati Factory Ltd is located on Mombasa Road, Nairobi, Kenya. You can visit our showroom or contact us at 0762235510 or email salesroyalmabatii@gmail.com. We serve all 47 counties in Kenya with free delivery.",
+            text: "Royal Mabati Factory Ltd is located on Mombasa Road, Nairobi, Kenya. You can visit our showroom or contact us at 0796764445 or email salesroyalmabatii@gmail.com. We serve all 47 counties in Kenya with free delivery.",
           },
         },
         {

@@ -27,7 +27,7 @@ export const QuoteForm = () => {
     const encodedMessage = encodeURIComponent(formData.message.trim());
 
     const whatsappMessage = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedPhone}%0ASubject: ${encodedSubject}%0AMessage: ${encodedMessage}`;
-    window.open(`https://wa.me/254762235510?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/254796764445?text=${whatsappMessage}`, "_blank");
 
     // Track as conversion for Google Ads
     trackQuoteSubmission(formData.subject || "General Inquiry");
@@ -41,9 +41,9 @@ export const QuoteForm = () => {
   };
 
   const locations = [
-    { name: "NAIROBI", address: "Industrial Area, Nairobi", phone: "+254 762 235 510" },
-    { name: "MOMBASA", address: "Changamwe, Mombasa", phone: "+254 762 235 510" },
-    { name: "KISUMU", address: "Kisumu Town, Nyanza", phone: "+254 762 235 510" },
+    { name: "NAIROBI", address: "Industrial Area, Nairobi", phone: "+254 796 764 445" },
+    { name: "MOMBASA", address: "Changamwe, Mombasa", phone: "+254 796 764 445" },
+    { name: "KISUMU", address: "Kisumu Town, Nyanza", phone: "+254 796 764 445" },
   ];
 
   return (
