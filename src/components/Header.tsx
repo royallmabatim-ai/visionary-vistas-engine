@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { Phone, Mail, Menu, X } from "lucide-react";
 
 export const Header = () => {
@@ -37,15 +37,11 @@ export const Header = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <a 
-                href="tel:0796764445"
+                href="tel:0762235510"
                 className="flex items-center gap-2 hover:opacity-90 transition-opacity font-semibold text-base"
-<<<<<<< HEAD
-=======
-                onClick={() => trackPhoneClick("0796764445")}
->>>>>>> 9b762f3c498016a1e5d965f86777ed9ca8608327
               >
                 <Phone className="h-5 w-5" />
-                <span>Call: 0796764445</span>
+                <span>Call: 0762235510</span>
               </a>
               <div className="hidden sm:block w-px h-6 bg-primary-foreground/30"></div>
               <a 
@@ -70,11 +66,7 @@ export const Header = () => {
 
       {/* Main Header */}
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-lg"
-            : "bg-background shadow-sm"
-        }`}
+        className={sticky top-0 z-50 transition-all duration-300 ${ isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-background shadow-sm" }}
       >
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-18">
@@ -115,15 +107,11 @@ export const Header = () => {
             {/* Phone & Menu */}
             <div className="flex items-center gap-3">
               <a
-                href="tel:0796764445"
+                href="tel:0762235510"
                 className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
-<<<<<<< HEAD
-=======
-                onClick={() => trackPhoneClick("0796764445")}
->>>>>>> 9b762f3c498016a1e5d965f86777ed9ca8608327
               >
                 <Phone className="h-3.5 w-3.5" />
-                <span>0796764445</span>
+                <span>0762235510</span>
               </a>
 
               <button
@@ -139,9 +127,7 @@ export const Header = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMenuOpen ? "max-h-96" : "max-h-0"
-          }`}
+          className={lg:hidden overflow-hidden transition-all duration-300 ${ isMenuOpen ? "max-h-96" : "max-h-0" }}
         >
           <nav className="border-t border-border bg-background px-4 py-2">
             {navItems.map((item) => (
@@ -154,11 +140,11 @@ export const Header = () => {
               </button>
             ))}
             <a
-              href="tel:+254796764445"
+              href="tel:+254762235510"
               className="flex items-center gap-2 py-3 px-3 text-primary font-semibold text-sm"
             >
               <Phone className="h-4 w-4" />
-              <span>0796764445</span>
+              <span>0762235510</span>
             </a>
           </nav>
         </div>
