@@ -1,5 +1,4 @@
 import { Phone, Mail, MapPin, Facebook, ArrowUp } from "lucide-react";
-import { trackPhoneClick, trackEmailClick } from "@/lib/tracking";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -66,7 +65,6 @@ export const Footer = () => {
               <a 
                 href="tel:+254762235510"
                 className="flex items-center gap-2 text-primary-foreground/80 hover:text-gold transition-colors"
-                onClick={() => trackPhoneClick("0762235510")}
               >
                 <Phone className="h-4 w-4" />
                 <span>0762235510</span>
@@ -74,7 +72,6 @@ export const Footer = () => {
               <a
                 href="mailto:salesroyalmabatii@gmail.com"
                 className="flex items-center gap-3 text-secondary-foreground/70 hover:text-accent transition-colors text-sm"
-                onClick={() => trackEmailClick("salesroyalmabatii@gmail.com")}
               >
                 <Mail className="h-4 w-4 flex-shrink-0" />
                 <span>salesroyalmabatii@gmail.com</span>
