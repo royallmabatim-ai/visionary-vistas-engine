@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Phone, Mail, Menu, X } from "lucide-react";
 
 export const Header = () => {
@@ -66,7 +66,11 @@ export const Header = () => {
 
       {/* Main Header */}
       <header
-        className={sticky top-0 z-50 transition-all duration-300 ${ isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-background shadow-sm" }}
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-background/95 backdrop-blur-md shadow-lg"
+            : "bg-background shadow-sm"
+        }`}
       >
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-18">
@@ -127,7 +131,9 @@ export const Header = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={lg:hidden overflow-hidden transition-all duration-300 ${ isMenuOpen ? "max-h-96" : "max-h-0" }}
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${
+            isMenuOpen ? "max-h-96" : "max-h-0"
+          }`}
         >
           <nav className="border-t border-border bg-background px-4 py-2">
             {navItems.map((item) => (
