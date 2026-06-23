@@ -124,11 +124,17 @@ export const Hero = () => {
                     <ArrowRight className="h-4 w-4 ml-1" />
                   </Button>
                   <Button
-                    onClick={() => scrollToSection("quote")}
+                    asChild
                     variant="outline"
                     className="border-background/40 text-background hover:bg-background/10 px-6 py-3 text-sm font-semibold rounded-full"
                   >
-                    Get Free Quote
+                    <a
+                      href="https://wa.me/254762235510"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get a Quote
+                    </a>
                   </Button>
                 </div>
               </div>
