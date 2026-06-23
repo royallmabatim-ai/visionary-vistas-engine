@@ -37,7 +37,7 @@ export const Header = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <a 
-                href="tel:0762235510"
+                href="tel:+254762235510"
                 className="flex items-center gap-2 hover:opacity-90 transition-opacity font-semibold text-base"
               >
                 <Phone className="h-5 w-5" />
@@ -111,7 +111,7 @@ export const Header = () => {
             {/* Phone & Menu */}
             <div className="flex items-center gap-3">
               <a
-                href="tel:0762235510"
+                href="tel:+254762235510"
                 className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
               >
                 <Phone className="h-3.5 w-3.5" />
